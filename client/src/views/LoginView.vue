@@ -1,9 +1,8 @@
 <template>
   <v-card
-    class="mx-auto text-center rounded"
+    class="mx-auto mt-3 text-center"
     max-width="344"
-    elevation="12"
-    title="Register"
+    title="User Login"
   >
     <v-container>
       <v-form
@@ -11,24 +10,6 @@
         v-model="valid"
         lazy-validation
       >
-        <v-text-field
-          v-model="firstName"
-          color="primary"
-          :rules="firstNameRules"
-          label="First name"
-          variant="underlined"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="lastName"
-          color="primary"
-          :rules="lastNameRules"
-          label="Last name"
-          variant="underlined"
-          required
-        ></v-text-field>
-
         <v-text-field
           v-model="email"
           color="primary"
@@ -65,7 +46,7 @@
           class="my-3"
           @click="register"
         >
-          Create Account
+          Validate
         </v-btn>
       </v-form>
       <v-divider></v-divider>
@@ -82,16 +63,6 @@ export default {
     return {
       valid: true,
       showPass: false,
-      firstName: '',
-      firstNameRules: [
-        v => !!v || 'Firstname is required',
-        v => (v && v.length <= 10) || 'First name must be less than 10 characters'
-      ],
-      lastName: '',
-      lastNameRules: [
-        v => !!v || 'Lastname is required',
-        v => (v && v.length <= 10) || 'Last name must be less than 10 characters'
-      ],
       email: '',
       emailRules: [
         v => !!v || 'E-mail is required',
@@ -99,21 +70,18 @@ export default {
       ],
       password: '',
       passwordRules: [
-        v => !!v || 'Password is required',
-        v => v.length >= 8 || 'Password must not be less than 8 characters'
+        v => !!v || 'Password is required'
       ],
-      // checkbox: false,
       error: null
+      // checkbox: false,
     }
   },
   methods: {
-    async register () {
+    async login () {
       this.$refs.form.validate()
       console.log(this.email)
       try {
-        await AuthenticationService.register({
-          firstName: this.firstName,
-          lastName: this.lastName,
+        await AuthenticationService.login({
           email: this.email,
           password: this.password
         })

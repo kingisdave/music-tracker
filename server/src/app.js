@@ -14,8 +14,10 @@ app.use(cors())
 require('./routes')(app)
 
 // app.listen(process.env.PORT || 8081)
-sequelize.sync().then(() => {
-    console.log(`Db is ready on port ${config.port}`)
-})
+// .sync({force: true}) adding the force will clear the database
+sequelize.sync()
+    .then(() => {
+        console.log(`Db is ready on port ${config.port}`)
+    })
   
 app.listen(config.port)

@@ -1,8 +1,11 @@
 <template>
-  <v-layout>
-    <v-app-bar
+  <v-app>
+    <page-header></page-header>
+
+    <!-- <v-app-bar
         color="primary"
         prominent
+        class="mb-2"
       >
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -15,8 +18,8 @@
         <v-btn variant="text" icon="mdi-filter"></v-btn>
 
         <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
-    </v-app-bar>
-    <v-navigation-drawer
+    </v-app-bar> -->
+    <!-- <v-navigation-drawer
       v-model="drawer"
       color="grey-darken-2"
       bottom
@@ -25,21 +28,27 @@
       <v-list
         :items="items"
       ></v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
     <v-main>
-      <v-card>
+      <v-container fluid
+        class="h-screen"
+        style="background: #5114DD33"
+      >
         <router-view/>
-      </v-card>
+      </v-container>
     </v-main>
-    <v-footer app>
-    </v-footer>
-  </v-layout>
+
+  </v-app>
 </template>
 
 <script>
+import PageHeader from '@/components/PageHeader.vue'
 
 export default {
   name: 'App',
+  components: {
+    PageHeader
+  },
 
   data: () => ({
     drawer: false,
@@ -70,3 +79,7 @@ export default {
   }
 }
 </script>
+
+<style>
+
+</style>
