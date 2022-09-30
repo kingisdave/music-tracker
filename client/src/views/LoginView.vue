@@ -6,7 +6,7 @@
   >
     <v-container>
       <v-form
-        ref="form"
+        ref="loginform"
         v-model="valid"
         lazy-validation
       >
@@ -44,9 +44,9 @@
           :disabled="!valid"
           color="primary"
           class="my-3"
-          @click="register"
+          @click="login"
         >
-          Validate
+          Login
         </v-btn>
       </v-form>
       <v-divider></v-divider>
@@ -61,6 +61,7 @@ import AuthenticationService from '@/services/AuthenticationService'
 export default {
   data () {
     return {
+      name: this.$store.state.name,
       valid: true,
       showPass: false,
       email: '',
@@ -78,13 +79,14 @@ export default {
   },
   methods: {
     async login () {
-      this.$refs.form.validate()
-      console.log(this.email)
+      this.$refs.loginform.validate()
       try {
-        await AuthenticationService.login({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }

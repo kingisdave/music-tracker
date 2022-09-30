@@ -10,6 +10,7 @@
         ref="form"
         v-model="valid"
         lazy-validation
+        autocomplete="off"
       >
         <v-text-field
           v-model="firstName"
@@ -108,8 +109,8 @@ export default {
   },
   methods: {
     async register () {
+      console.log(this.$refs.form)
       this.$refs.form.validate()
-      console.log(this.email)
       try {
         await AuthenticationService.register({
           firstName: this.firstName,

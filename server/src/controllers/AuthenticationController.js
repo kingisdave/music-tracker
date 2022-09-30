@@ -24,28 +24,28 @@ module.exports = {
   async login (req, res) {
     try {
       const { email, password } = req.body;
-      const user = await User.findOne({
+      await User.findOne({
         where: {
           email: email
         }
       })
-      if(!user) {
-        return res.status(403).send({
-          error: 'The login information was incorrect'
-        })
-      }
-      console.log(password)
-      const isPasswordValid = user.comparePassword(password)
-      console.log(isPasswordValid)
-      if(!isPasswordValid) {
-        return res.status(403).send({
-          error: 'The login information was incorrect'
-        })
-      } 
-      const userJson = user.toJSON()
-      res.send({
-        user: userJson,
-        token: jwtSignUser(userJson)
+      .then(async function (user) {
+        if (!user) {
+          res.redirect('/login');
+          return res.status(403).send({
+            error: 'The login information was incorrect'
+          })
+        } else if(!await user.validPassword(password)) {
+          return res.status(403).send({
+            error: 'The login information was incorrect'
+          })
+        } else { 
+          const userJson = user.toJSON()
+          res.send({
+            user: userJson,
+            token: jwtSignUser(userJson)
+          })
+        }
       })
     } catch (error) {
       res.status(500).send({
