@@ -16,23 +16,41 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn flat dark
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        flat
+        dark
         @click="navigateTo({name: 'login'})">
         Login
       </v-btn>
 
-      <v-btn flat dark
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        flat
+        dark
         @click="navigateTo({name: 'register'})">
         Sign Up
       </v-btn>
+
+      <!-- <v-icon
+        aria-label="My Account" role="img" aria-hidden="false"
+        :icon="`mdiSvg:${icons.mdiAccount}`"
+      ></v-icon> -->
+
     </v-toolbar-items>
   </v-toolbar>
 </template>
 
 <script>
+// import { mdiAccount } from '@mdi/js'
 
 export default {
   name: 'PageHeader',
+  // data: () => ({
+  //   icons: {
+  //     mdiAccount
+  //   }
+  // }),
   methods: {
     navigateTo (route) {
       this.$router.push(route)

@@ -1,16 +1,22 @@
 import { createStore } from 'vuex'
 
-export default createStore({
+const store = createStore({
   strict: true,
   state: {
     token: null,
-    user: null
+    user: null,
+    isUserLoggedIn: false
   },
   getters: {
   },
   mutations: {
     setToken (state, token) {
       state.token = token
+      if (token) {
+        state.isUserLoggedIn = true
+      } else {
+        state.isUserLoggedIn = false
+      }
     },
     setUser (state, user) {
       state.user = user
@@ -21,10 +27,12 @@ export default createStore({
       commit('setToken', token)
     },
     setUser ({ commit }, user) {
-      commit('setuser', user)
+      commit('setUser', user)
     }
 
   },
   modules: {
   }
 })
+
+export default store

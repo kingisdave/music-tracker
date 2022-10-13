@@ -1,9 +1,20 @@
 <template>
   <v-card
-    class="mx-auto mt-3 text-center"
+    class="mx-auto text-center"
     max-width="344"
     title="User Login"
   >
+    <v-alert
+      type="error"
+      v-model="showError"
+      border="start"
+      variant="tonal"
+      closable
+      close-label="Close Alert"
+      color="red"
+    >
+      {{error}}
+    </v-alert>
     <v-container>
       <v-form
         ref="loginform"
@@ -49,9 +60,9 @@
           Login
         </v-btn>
       </v-form>
-      <v-divider></v-divider>
-      <div class="error" v-html="error">
-      </div>
+      <!-- <v-divider></v-divider> -->
+      <!-- <div class="error" v-html="error">
+      </div> -->
     </v-container>
   </v-card>
 </template>
@@ -73,13 +84,16 @@ export default {
       passwordRules: [
         v => !!v || 'Password is required'
       ],
+      showError: false,
       error: null
       // checkbox: false,
     }
   },
   methods: {
     async login () {
-      this.$refs.loginform.validate()
+      console.log(this.email, 'dksm')
+      console.log(this.password, ' PSS')
+      // this.$refs.loginform.validate()
       try {
         const response = await AuthenticationService.login({
           email: this.email,
@@ -87,8 +101,9 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
-      } catch (error) {
-        this.error = error.response.data.error
+      } catch (err) {
+        this.error = err.response.data.error
+        this.showError = true
       }
     }
   }

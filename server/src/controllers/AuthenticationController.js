@@ -22,16 +22,35 @@ module.exports = {
   },
 
   async login (req, res) {
+    console.log(req)
     try {
       const { email, password } = req.body;
       await User.findOne({
-        where: {
-          email: email
-        }
-      })
+          where: {
+            email: email
+          }
+        })
+        // if (!user) {
+        //     // res.redirect('/login');
+        //     return res.status(401).json({
+        //       error: 'The login information was incorrect'
+        //     })
+        // }
+        // const isPasswordValid = await user.validPassword(password)
+        // if(!isPasswordValid) {
+        //   return res.status(401).json({
+        //     error: 'The login information was incorrect'
+        //   });
+        // } 
+        // const userJson = user.toJSON()
+        // return res.status(200).json({
+        //   user: userJson,
+        //   token: jwtSignUser(userJson)
+        // });
+        
       .then(async function (user) {
         if (!user) {
-          res.redirect('/login');
+          // res.redirect('/login')
           return res.status(403).send({
             error: 'The login information was incorrect'
           })
@@ -41,16 +60,16 @@ module.exports = {
           })
         } else { 
           const userJson = user.toJSON()
-          res.send({
+          return res.send({
             user: userJson,
             token: jwtSignUser(userJson)
           })
         }
       })
-    } catch (error) {
-      res.status(500).send({
+    } catch (err) {
+      return res.sendStatus(500).json({
         error: 'Error occured while trying to login'
-      })
+      });
     }
   }
 } 

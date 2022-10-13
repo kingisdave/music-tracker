@@ -1,10 +1,22 @@
 <template>
   <v-card
-    class="mx-auto text-center rounded"
+    class="mx-auto mt-4 text-center rounded"
     max-width="344"
     elevation="12"
     title="Register"
   >
+
+    <v-alert
+      type="error"
+      v-model="showError"
+      border="start"
+      variant="tonal"
+      closable
+      close-label="Close Alert"
+      color="red"
+    >
+      {{error}}
+    </v-alert>
     <v-container>
       <v-form
         ref="form"
@@ -69,9 +81,7 @@
           Create Account
         </v-btn>
       </v-form>
-      <v-divider></v-divider>
-      <div class="error" v-html="error">
-      </div>
+
     </v-container>
   </v-card>
 </template>
@@ -103,7 +113,7 @@ export default {
         v => !!v || 'Password is required',
         v => v.length >= 8 || 'Password must not be less than 8 characters'
       ],
-      // checkbox: false,
+      showError: false,
       error: null
     }
   },
@@ -118,8 +128,9 @@ export default {
           email: this.email,
           password: this.password
         })
-      } catch (error) {
-        this.error = error.response.data.error
+      } catch (err) {
+        this.showError = true
+        this.error = err.response.data.error
       }
     }
   }
