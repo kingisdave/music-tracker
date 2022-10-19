@@ -1,8 +1,7 @@
 <template>
   <v-container class="">
     <v-row no-gutters>
-      <v-col sm="auto"
-        md="6">
+      <v-col cols="12">
         <v-toolbar :elevation="3" flat dense dark color="primary" >
           <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
