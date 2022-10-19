@@ -5,6 +5,8 @@
       <panel-view title="Song Metadata">
         <v-text-field
           label="Title"
+          required
+          :rules="[required]"
           v-model="song.title"
         ></v-text-field>
         <v-text-field
@@ -76,7 +78,8 @@ export default {
         youtubeId: null,
         lyrics: null,
         tab: null
-      }
+      },
+      required: (value) => !value || 'Required.'
       // rules: [v => v.length <= 500 || 'Max 25 characters'],
     }
   },

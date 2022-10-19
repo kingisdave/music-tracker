@@ -1,6 +1,20 @@
 <template>
   <v-layout column>
     <panel-view title="Songs">
+      <template v-slot:action>
+        <v-btn
+          @click="navigateTo({name: 'songs-create'})"
+          class="ma-2 primary accent-2"
+          color="white"
+          medium
+          absolute
+          right
+          middle
+        >
+          <v-icon icon="mdi-plus" />
+        </v-btn>
+
+      </template>
       <div v-for="song in songs"
         :key="song.id">
         {{song.title}} -
@@ -21,6 +35,11 @@ export default {
   data () {
     return {
       songs: null
+    }
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
     }
   },
   async mounted () {
