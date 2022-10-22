@@ -1,62 +1,78 @@
 <template>
-  <v-layout>
-    <v-col sm="auto"
+  <v-form
+    v-model="form"
+    @submit.prevent="createSong"
+  >
+    <v-layout>
+      <v-col sm="auto"
         md="5">
-      <panel-view title="Song Metadata">
-        <v-text-field
-          label="Title"
-          required
-          :rules="[required]"
-          v-model="song.title"
-        ></v-text-field>
-        <v-text-field
-          label="Artist"
-          v-model="song.artist"
-        ></v-text-field>
-        <v-text-field
-          label="Genre"
-          v-model="song.genre"
-        ></v-text-field>
-        <v-text-field
-          label="Album"
-          v-model="song.album"
-        ></v-text-field>
-        <v-text-field
-          label="Album Image Url"
-          v-model="song.albumImageUrl"
-        ></v-text-field>
-        <v-text-field
-          label="Youtube Id"
-          v-model="song.youtubeId"
-        ></v-text-field>
-      </panel-view>
-    </v-col>
-    <v-col sm="auto"
-      md="7"
-    >
-      <panel-view title="Song Structure">
-        <v-textarea
-          label="Tab"
-          background-color="primary"
-          color="primary"
-          v-model="song.tab"
-        ></v-textarea>
-        <v-textarea
-          label="Lyrics"
-          background-color="primary"
-          color="primary"
-          v-model="song.lyrics"
-        ></v-textarea>
-      </panel-view>
+        <panel-view
+          title="Song Metadata">
+          <v-text-field
+            label="Title"
+            v-model="song.title"
+            :rules="[required]"
+            clearable
+          ></v-text-field>
+          <v-text-field
+            label="Artist"
+            v-model="song.artist"
+            :rules="[required]"
+          ></v-text-field>
+          <v-text-field
+            label="Genre"
+            v-model="song.genre"
+            :rules="[required]"
+          ></v-text-field>
+          <v-text-field
+            label="Album"
+            v-model="song.album"
+            :rules="[required]"
+          ></v-text-field>
+          <v-text-field
+            label="Album Image Url"
+            v-model="song.albumImageUrl"
+            :rules="[required]"
+          ></v-text-field>
+          <v-text-field
+            label="Youtube Id"
+            v-model="song.youtubeId"
+            :rules="[required]"
+          ></v-text-field>
+        </panel-view>
+      </v-col>
+      <v-col sm="auto"
+        md="7"
+      >
+        <panel-view title="Song Structure">
+          <v-textarea
+            label="Tab"
+            background-color="primary"
+            color="primary"
+            v-model="song.tab"
+            :rules="[required]"
+          ></v-textarea>
+          <v-textarea
+            label="Lyrics"
+            background-color="primary"
+            color="primary"
+            v-model="song.lyrics"
+            :rules="[required]"
+          ></v-textarea>
+        </panel-view>
 
-      <v-btn
-        block
-        color="primary"
-        @click="createSong">
-        Add New Song
-      </v-btn>
-    </v-col>
-  </v-layout>
+        <v-btn
+          :disabled="!form"
+          :loading="loading"
+          block
+          color="primary"
+          type="submit"
+        >
+          Add New Song
+        </v-btn>
+      </v-col>
+    </v-layout>
+  </v-form>
 </template>
 
 <script>
@@ -79,12 +95,28 @@ export default {
         lyrics: null,
         tab: null
       },
-      required: (value) => !value || 'Required.'
+      // error: null,
+      form: false,
+      // required (v) {
+      //   return !!v || 'Field is required'
+      // }
+      required: (val) => !!val || 'Field is Required.'
       // rules: [v => v.length <= 500 || 'Max 25 characters'],
     }
   },
   methods: {
     async createSong () {
+      // this.error = null
+      // const validateAllFields = Object
+      //   .keys(this.song)
+      //   .every(key => !!this.song[key])
+      // if (!validateAllFields) {
+      //   // this.error = 'Please fill in all the required details'
+      //   return
+      // }
+      if (!this.form) return
+      this.loading = true
+
       try {
         await SongService.post(this.song)
         this.$router.push({
@@ -93,6 +125,7 @@ export default {
       } catch (err) {
         console.log(err)
       }
+      setTimeout(() => (this.loading = false), 2000)
     }
   }
 }

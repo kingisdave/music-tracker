@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
-import SongsView from '../views/songs/SongsView.vue'
+import AllSongsView from '../views/songs/AllSongsView.vue'
 import CreateSong from '../views/songs/CreateSong.vue'
+import ViewSong from '../views/songs/ViewSong.vue'
 
 const routes = [
   {
@@ -24,12 +25,17 @@ const routes = [
   {
     path: '/songs',
     name: 'songs',
-    component: SongsView
+    component: AllSongsView
   },
   {
     path: '/songs/create',
     name: 'songs-create',
     component: CreateSong
+  },
+  {
+    path: '/songs/:songId',
+    name: 'song',
+    component: ViewSong
   },
   {
     path: '/about',
