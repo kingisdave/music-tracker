@@ -8,6 +8,11 @@ const store = createStore({
     isUserLoggedIn: false
   },
   getters: {
+    song (state) {
+      return (songId) => {
+        return state.songs.find((song) => song.id === songId)
+      }
+    }
   },
   mutations: {
     setToken (state, token) {
