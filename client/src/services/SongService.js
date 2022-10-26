@@ -4,10 +4,10 @@ export default {
   index () {
     return Api().get('songs')
   },
-  post (credentials) {
-    return Api().post('songs', credentials)
+  post (song) {
+    return Api().post('songs', song)
   },
-  show (credentials) {
-    return Api().get('song', credentials)
+  show (songId) {
+    return Api().get(`songs/${songId}`)
   }
 }
