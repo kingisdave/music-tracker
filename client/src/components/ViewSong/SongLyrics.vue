@@ -1,7 +1,12 @@
 <template>
   <div>
     <panel-view
-      title="Lyrics">
+      title="Song Lyrics"
+    >
+      <textarea
+        readonly
+        v-model="songLyrics"
+      ></textarea>
     </panel-view>
   </div>
 </template>
@@ -10,14 +15,18 @@
 import PanelView from '@/components/PanelView'
 export default {
   props: [
-    'song'
+    'songLyrics'
   ],
-  component: {
+  components: {
     PanelView
   }
 }
 </script>
 
 <style scoped>
-
+  textarea {
+    width: 100%;
+    height: 600px;
+    border: none;
+  }
 </style>

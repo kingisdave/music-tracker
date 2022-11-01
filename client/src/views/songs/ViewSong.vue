@@ -1,14 +1,25 @@
 <template>
   <v-layout>
-      <v-col sm="auto"
+    <v-row>
+      <v-col cols="12"
         md="6">
-        <song-metadata :song="song" />
+        <song-metadata
+          :song="song"
+        />
       </v-col>
-      <v-col sm="auto"
+      <v-col cols="12"
         md="6">
-        <youtube-video :youtubeId="song.youtubeId" />
+        <youtube-video
+          :youtubeId="song.youtubeId"
+        />
       </v-col>
-      <v-col sm="auto"
+      <v-col cols="12"
+        md="6">
+        <song-lyrics
+          :songLyrics="song.lyrics"
+        />
+      </v-col>
+      <v-col cols="12"
         md="6"
       >
         <panel-view title="Song Tab">
@@ -18,7 +29,8 @@
           ></textarea>
         </panel-view>
       </v-col>
-    </v-layout>
+    </v-row>
+  </v-layout>
 </template>
 
 <script>
@@ -26,6 +38,7 @@ import SongService from '@/services/SongService'
 import PanelView from '@/components/PanelView'
 import YoutubeVideo from '@/components/viewSong/YoutubeVideo.vue'
 import SongMetadata from '@/components/viewSong/SongMetadata.vue'
+import SongLyrics from '@/components/viewSong/SongLyrics.vue'
 
 export default {
   data () {
@@ -48,7 +61,8 @@ export default {
   components: {
     PanelView,
     YoutubeVideo,
-    SongMetadata
+    SongMetadata,
+    SongLyrics
   }
 }
 </script>

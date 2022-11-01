@@ -35,7 +35,7 @@ export default {
   props: [
     'song'
   ],
-  component: {
+  components: {
     PanelView
   }
 }

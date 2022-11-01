@@ -1,12 +1,11 @@
 <template>
   <div>
     <panel-view
-      title="Youtube">
-      <iframe id="existing-iframe-example"
-        width="640" height="360"
-        src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
-        frameborder="0"
-        style="border: solid 4px #37474F"
+      title="Youtube Video">
+      <iframe id="iframe-youtube"
+        width="100%" height="350"
+        :src="embedYoutubeId(youtubeId)"
+        frameborder="0" allowfullscreen=""
       ></iframe>
     </panel-view>
   </div>
@@ -18,8 +17,21 @@ export default {
   props: [
     'youtubeId'
   ],
-  component: {
+  components: {
     PanelView
+  },
+  methods: {
+    embedYoutubeId (youtubeUrl) {
+      let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+      if(youtubeUrl){
+        let urlMatch = youtubeUrl.match(regExp);
+        return (urlMatch && urlMatch[7].length == 11) ?
+          `https://www.youtube.com/embed/${urlMatch[7]}` : false;
+      } else{
+        return `https://www.youtube.com`;
+      }
+    }
+
   }
 }
 </script>
@@ -29,7 +41,4 @@ export default {
     outline: none;
   }
 
-  iframe[seamless] {
-      display: block;
-  }
 </style>
