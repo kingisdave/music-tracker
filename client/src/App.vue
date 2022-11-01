@@ -31,7 +31,7 @@
     </v-navigation-drawer> -->
     <v-main>
       <v-container fluid
-        class="h-screen"
+        class="fill-height"
         style="background: #5114DD33"
       >
         <router-view/>

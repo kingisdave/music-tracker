@@ -2,7 +2,11 @@
   <v-layout>
       <v-col sm="auto"
         md="6">
-
+        <song-metadata :song="song" />
+      </v-col>
+      <v-col sm="auto"
+        md="6">
+        <youtube-video :youtubeId="song.youtubeId" />
       </v-col>
       <v-col sm="auto"
         md="6"
@@ -20,6 +24,8 @@
 <script>
 import SongService from '@/services/SongService'
 import PanelView from '@/components/PanelView'
+import YoutubeVideo from '@/components/viewSong/YoutubeVideo.vue'
+import SongMetadata from '@/components/viewSong/SongMetadata.vue'
 
 export default {
   data () {
@@ -40,7 +46,9 @@ export default {
     console.log(this.song)
   },
   components: {
-    PanelView
+    PanelView,
+    YoutubeVideo,
+    SongMetadata
   }
 }
 </script>
