@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
 export default {
   props: [
     'song'
@@ -61,10 +60,7 @@ export default {
     navigateTo (route) {
       this.$router.push(route)
     }
-  },
-  components: {
-    PanelView
-  },
+  }
 }
 </script>
 

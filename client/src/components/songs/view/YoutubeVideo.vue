@@ -12,14 +12,10 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
 export default {
   props: [
     'youtubeId'
   ],
-  components: {
-    PanelView
-  },
   methods: {
     embedYoutubeId (youtubeUrl) {
       let regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;

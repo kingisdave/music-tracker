@@ -31,11 +31,10 @@
 
 <script>
 import SongService from '@/services/SongService'
-import PanelView from '@/components/PanelView'
-import YoutubeVideo from '@/components/viewSong/YoutubeVideo.vue'
-import SongMetadata from '@/components/viewSong/SongMetadata.vue'
-import SongLyrics from '@/components/viewSong/SongLyrics.vue'
-import SongTab from '@/components/viewSong/SongTab.vue'
+import YoutubeVideo from '@/components/songs/view/YoutubeVideo.vue'
+import SongMetadata from '@/components/songs/view/SongMetadata.vue'
+import SongLyrics from '@/components/songs/view/SongLyrics.vue'
+import SongTab from '@/components/songs/view/SongTab.vue'
 import CommentTab from '@/components/comment/CommentTab.vue'
 
 export default {
@@ -57,7 +56,6 @@ export default {
     console.log(this.song)
   },
   components: {
-    PanelView,
     YoutubeVideo,
     SongMetadata,
     SongLyrics,
