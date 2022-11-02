@@ -32,5 +32,19 @@ module.exports = {
         error: 'Error occurred while trying to fetch the songs'
       })
     }
+  },
+  async update (req, res) {
+    try {
+      await Song.update(req.body, {
+        where: {
+          id: req.params.songId
+        }
+      })
+      res.send(req.body)
+    } catch (error) {
+      res.status(400).send({
+        error: 'Error occurred while updating the songs'
+      })
+    }
   }
 } 

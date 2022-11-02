@@ -5,6 +5,7 @@ import LoginView from '../views/LoginView.vue'
 import AllSongsView from '../views/songs/AllSongsView.vue'
 import CreateSong from '../views/songs/CreateSong.vue'
 import ViewSong from '../views/songs/ViewSong.vue'
+import EditSong from '../views/songs/EditSong.vue'
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/songs/:songId',
     name: 'song',
     component: ViewSong
+  },
+  {
+    path: '/songs/:songId/edit',
+    name: 'song-edit',
+    component: EditSong
   },
   {
     path: '/about',

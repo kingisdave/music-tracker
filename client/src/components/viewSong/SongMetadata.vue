@@ -18,11 +18,28 @@
           <img
             :src="song.albumImageUrl"
             alt="preview"
-            height="100"
+            height="200"
           /><br/>
           <div class="song-album">
             {{song.album}}
           </div>
+        </v-col>
+        <v-col
+          class="d-flex align-end justify-center"
+          cols="12">
+          <v-btn
+            rounded="lg"
+            size="large"
+            @click="navigateTo({
+              name: 'song-edit',
+              params: {
+                songId: song.id
+              }
+            })"
+            color="primary"
+          >
+            Edit Song
+          </v-btn>
         </v-col>
       </v-row>
     </panel-view>
@@ -35,9 +52,19 @@ export default {
   props: [
     'song'
   ],
+  data () {
+    return {
+      alignments: ['end']
+    }
+  },
+  methods: {
+    navigateTo (route) {
+      this.$router.push(route)
+    }
+  },
   components: {
     PanelView
-  }
+  },
 }
 </script>
 

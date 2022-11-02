@@ -20,14 +20,10 @@
         />
       </v-col>
       <v-col cols="12"
-        md="6"
-      >
-        <panel-view title="Song Tab">
-          <textarea
-            readonly
-            v-model="song.tab"
-          ></textarea>
-        </panel-view>
+        md="6">
+        <song-tab
+          :songTab="song.tab"
+        />
       </v-col>
     </v-row>
   </v-layout>
@@ -39,6 +35,8 @@ import PanelView from '@/components/PanelView'
 import YoutubeVideo from '@/components/viewSong/YoutubeVideo.vue'
 import SongMetadata from '@/components/viewSong/SongMetadata.vue'
 import SongLyrics from '@/components/viewSong/SongLyrics.vue'
+import SongTab from '@/components/viewSong/SongTab.vue'
+import CommentTab from '@/components/comment/CommentTab.vue'
 
 export default {
   data () {
@@ -62,7 +60,9 @@ export default {
     PanelView,
     YoutubeVideo,
     SongMetadata,
-    SongLyrics
+    SongLyrics,
+    SongTab,
+    CommentTab
   }
 }
 </script>
