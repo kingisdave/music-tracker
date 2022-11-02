@@ -12,14 +12,11 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
 export default {
   props: [
     'songLyrics'
-  ],
-  components: {
-    PanelView
-  }
+  ]
+
 }
 </script>
 

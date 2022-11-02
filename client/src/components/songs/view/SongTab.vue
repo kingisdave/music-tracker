@@ -12,14 +12,10 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
 export default {
   props: [
     'songTab'
-  ],
-  components: {
-    PanelView
-  }
+  ]
 }
 </script>
 

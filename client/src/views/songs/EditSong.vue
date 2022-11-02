@@ -76,13 +76,9 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
 import SongService from '@/services/SongService'
 
 export default {
-  components: {
-    PanelView
-  },
   data () {
     return {
       song: {

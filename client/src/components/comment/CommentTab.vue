@@ -7,12 +7,8 @@
 </template>
 
 <script>
-import PanelView from '@/components/PanelView'
-
 export default {
-  components: {
-    PanelView
-  }
+  
 }
 </script>
 
