@@ -119,7 +119,6 @@ export default {
   },
   methods: {
     async register () {
-      console.log(this.$refs.form)
       this.$refs.form.validate()
       try {
         await AuthenticationService.register({
@@ -127,6 +126,9 @@ export default {
           lastName: this.lastName,
           email: this.email,
           password: this.password
+        })
+        this.$router.push({
+          name: 'login'
         })
       } catch (err) {
         this.showError = true

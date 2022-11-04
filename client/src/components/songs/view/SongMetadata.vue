@@ -25,20 +25,40 @@
           </div>
         </v-col>
         <v-col
-          class="d-flex align-end justify-center"
+          class="d-flex justify-space-around"
           cols="12">
           <v-btn
             rounded="lg"
             size="large"
-            @click="navigateTo({
-              name: 'song-edit',
-              params: {
-                songId: song.id
-              }
-            })"
             color="primary"
+            :to="{
+              name: 'song-edit',
+              params () {
+                return {
+                  songId: song.id
+                }
+              }
+            }"
           >
             Edit Song
+          </v-btn>
+          <v-btn
+            v-if="isUserLoggedIn && !isBookmarked"
+            rounded="lg"
+            size="large"
+            @click="addBookmark"
+            color="primary"
+          >
+            Bookmark
+          </v-btn>
+          <v-btn
+            v-if="isUserLoggedIn && isBookmarked"
+            rounded="lg"
+            size="large"
+            @click="unBookmark"
+            color="secondary"
+          >
+            Unbookmark
           </v-btn>
         </v-col>
       </v-row>
@@ -47,18 +67,36 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   props: [
     'song'
   ],
   data () {
     return {
-      alignments: ['end']
+      isBookmarked: false
     }
   },
+  computed: {
+    ...mapState([
+      'isUserLoggedIn'
+    ])
+  },
+  async mounted () {
+    const bookmark = (await BookmarkService.index({
+      songId: 1,
+      userId: 1,
+      bookmarkType: 'song'
+    })).data
+    this.isBookmarked = !!bookmark
+    console.log('bookmark ', this.isBookmarked)
+  },
   methods: {
-    navigateTo (route) {
-      this.$router.push(route)
+    addBookmark () {
+      console.log('bookmark')
+    },
+    unBookmark () {
+      console.log('unbookmark')
     }
   }
 }
