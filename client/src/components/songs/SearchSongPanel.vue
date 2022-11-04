@@ -8,24 +8,25 @@
 </template>
 
 <script>
+import _ from "lodash"
 export default {
   data () {
     return {
       search: ''
-    } 
+    }
   },
   watch: {
-    search (value) {
+    search: _.debounce(async function (value) {
       const route = {
         name: 'songs'
-      } 
+      }
       if(this.search !== '') {
         route.query = {
           search: this.search
         }
       }
       this.$router.push(route)
-    },
+    }, 600),
     '$route.query.search': {
       immediate: true,
       handler (value) {
