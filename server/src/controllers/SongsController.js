@@ -24,7 +24,6 @@ module.exports = {
             // ]
           }
         })
-        console.log('SONGER::: ', songs)
       } else {
         songs = await Song.findAll({
           limit: 10

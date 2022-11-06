@@ -16,5 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     tab: DataTypes.TEXT
   })
 
+  Song.associate = function (models) {
+    Song.hasOne(models.Bookmark, {
+      foreignKey: 'SongId'
+    });
+  }
+
   return Song;
 }

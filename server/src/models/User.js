@@ -38,5 +38,9 @@ module.exports = (sequelize, DataTypes) => {
     
   }
 
+  User.associate = function (models) {
+    User.hasOne(models.Bookmark);
+  }
+
   return User;
 }
