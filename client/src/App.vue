@@ -1,6 +1,8 @@
 <template>
-  <v-app>
-    <page-header></page-header>
+  <v-app :theme="theme">
+    <page-header
+      @toggle-theme="toggleTheme"
+    ></page-header>
 
     <!-- <v-app-bar
         color="primary"
@@ -40,8 +42,8 @@
 
   </v-app>
 </template>
-
 <script>
+import { useTheme } from 'vuetify'
 import PageHeader from '@/components/PageHeader.vue'
 
 export default {
@@ -49,7 +51,6 @@ export default {
   components: {
     PageHeader
   },
-
   data: () => ({
     drawer: false,
     group: null,
@@ -72,6 +73,20 @@ export default {
       }
     ]
   }),
+  setup () {
+    const theme = useTheme()
+
+    return {
+      theme,
+      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+    }
+  },
+  // methods: {
+  //   changeTheme () {
+  //     this.theme = this.theme === 'light' ? 'dark' : 'light'
+  //     console.log('this them',this.theme)
+  //   }
+  // },
   watch: {
     group () {
       this.drawer = false

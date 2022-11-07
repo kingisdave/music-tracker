@@ -14,10 +14,10 @@ module.exports = (sequelize) => {
   //   Bookmark.belongsTo(models.User)
   // }
   Bookmark.associate = function (models) {
-    Bookmark.belongsTo(User, {
+    Bookmark.belongsTo(models.User, {
       foreignKey: 'UserId'
     })
-    Bookmark.belongsTo(Song, {
+    Bookmark.belongsTo(models.Song, {
       foreignKey: 'SongId'
     })
   } 
