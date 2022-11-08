@@ -2,6 +2,7 @@
   <v-app :theme="theme">
     <page-header
       @toggle-theme="toggleTheme"
+      @toggle-drawer="drawer = !drawer"
     ></page-header>
 
     <!-- <v-app-bar
@@ -13,13 +14,10 @@
 
         <v-toolbar-title>My files</v-toolbar-title>
 
-        <v-spacer></v-spacer>
 
         <v-btn variant="text" icon="mdi-magnify"></v-btn>
 
         <v-btn variant="text" icon="mdi-filter"></v-btn>
-
-        <v-btn variant="text" icon="mdi-dots-vertical"></v-btn>
     </v-app-bar> -->
     <!-- <v-navigation-drawer
       v-model="drawer"
@@ -31,6 +29,12 @@
         :items="items"
       ></v-list>
     </v-navigation-drawer> -->
+    <v-navigation-drawer
+      v-model="drawer"
+      class="bg-deep-purple"
+      theme="dark"
+      style="background: #1F1F1F"
+    ></v-navigation-drawer>
     <v-main>
       <v-container fluid
         class="fill-height"
@@ -90,6 +94,7 @@ export default {
   watch: {
     group () {
       this.drawer = false
+
     }
   }
 }

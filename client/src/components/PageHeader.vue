@@ -1,5 +1,5 @@
 <template>
-  <v-toolbar dark color="mainprimary">
+  <v-toolbar dark>
     <v-toolbar-title class="mr-4">
       <router-link
         class="home"
@@ -7,6 +7,10 @@
         :to="{name: 'root'}">
         MusicTracker
       </router-link>
+      <v-app-bar-nav-icon
+        variant="text"
+        @click.stop="$emit('toggle-drawer')"
+      ></v-app-bar-nav-icon>
     </v-toolbar-title>
     <v-toolbar-items>
       <v-btn
@@ -66,7 +70,7 @@
 
 export default {
   name: 'PageHeader',
-  props: ['theme'],
+  props: ['theme', 'drawer'],
   // data: () => ({
   //   icons: {
   //     mdiAccount
@@ -98,7 +102,6 @@ export default {
     color: aquamarine;
   }
   .navButtons {
-    color:  !important;
     background-color: transparent !important;
   }
   .navButtons:hover {
