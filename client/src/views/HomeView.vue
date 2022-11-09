@@ -2,11 +2,9 @@
   <v-card>
     <v-layout>
       <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
-      <v-main>
         <v-card-text>
           The navigation drawer will appear from the bottom on smaller size screens.
         </v-card-text>
-      </v-main>
     </v-layout>
   </v-card>
   <!-- <HelloWorld /> -->

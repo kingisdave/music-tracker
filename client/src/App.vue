@@ -4,37 +4,9 @@
       @toggle-theme="toggleTheme"
       @toggle-drawer="drawer = !drawer"
     ></page-header>
-
-    <!-- <v-app-bar
-        color="primary"
-        prominent
-        class="mb-2"
-      >
-        <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-        <v-toolbar-title>My files</v-toolbar-title>
-
-
-        <v-btn variant="text" icon="mdi-magnify"></v-btn>
-
-        <v-btn variant="text" icon="mdi-filter"></v-btn>
-    </v-app-bar> -->
-    <!-- <v-navigation-drawer
-      v-model="drawer"
-      color="grey-darken-2"
-      bottom
-      temporary
-    >
-      <v-list
-        :items="items"
-      ></v-list>
-    </v-navigation-drawer> -->
-    <v-navigation-drawer
-      v-model="drawer"
-      class="bg-deep-purple"
-      theme="dark"
-      style="background: #1F1F1F"
-    ></v-navigation-drawer>
+    <side-navigation-bar
+      :drawer="drawer"
+    ></side-navigation-bar>
     <v-main>
       <v-container fluid
         class="fill-height"
@@ -49,11 +21,13 @@
 <script>
 import { useTheme } from 'vuetify'
 import PageHeader from '@/components/PageHeader.vue'
+import SideNavigationBar from '@/components/SideNavigationBar.vue'
 
 export default {
   name: 'App',
   components: {
-    PageHeader
+    PageHeader,
+    SideNavigationBar
   },
   data: () => ({
     drawer: false,
@@ -82,7 +56,8 @@ export default {
 
     return {
       theme,
-      toggleTheme: () => theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+      toggleTheme: () =>
+        theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
     }
   },
   // methods: {
@@ -91,12 +66,12 @@ export default {
   //     console.log('this them',this.theme)
   //   }
   // },
-  watch: {
-    group () {
-      this.drawer = false
-
-    }
-  }
+  // watch: {
+  //   group () {
+  //     this.drawer = false
+  //     console.log('DRWAS ',this.drawer)
+  //   }
+  // }
 }
 </script>
 
