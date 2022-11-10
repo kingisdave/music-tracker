@@ -6,6 +6,7 @@ import AllSongsView from '../views/songs/Index.vue'
 import CreateSong from '../views/songs/CreateSong.vue'
 import ViewSong from '../views/songs/ViewSong.vue'
 import EditSong from '../views/songs/EditSong.vue'
+import DashboardView from '../views/privates/DashboardView.vue'
 
 const routes = [
   {
@@ -44,6 +45,41 @@ const routes = [
     component: EditSong
   },
   {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: DashboardView
+  },
+  {
+    path: '/account',
+    name: 'account',
+    component: DashboardView
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: DashboardView
+  },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: DashboardView
+  },
+  {
+    path: '/wallet',
+    name: 'wallet',
+    component: DashboardView
+  },
+  {
+    path: '/inbox',
+    name: 'inbox',
+    component: DashboardView
+  },
+  {
+    path: '/timeline',
+    name: 'timeline',
+    component: DashboardView
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
@@ -53,8 +89,8 @@ const routes = [
   },
   {
     path: '/:pathMatch(.*)*',
-    name: 'songs', 
-    component: AllSongsView 
+    name: 'songs',
+    component: AllSongsView
   }
 ]
 

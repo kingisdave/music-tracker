@@ -10,32 +10,47 @@
       <v-list-item
         prepend-icon="mdi-view-dashboard"
         title="Dashboard"
+        :to="{name: 'dashboard'}"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-account-box"
         title="Account"
+        :to="{name: 'account'}"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-gavel"
         title="Admin"
+        :to="{name: 'admin'}"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-email"
-        title="Inbox" value="inbox"
+        title="Inbox"
+        value="inbox"
+        :to="{name: 'inbox'}"
       ></v-list-item>
       <v-list-item
-        prepend-icon="mdi-account-supervisor-circle"
-        title="Supervisors"
-        value="supervisors"
+        prepend-icon="mdi-shape"
+        title="My Categories"
+        value="categories"
+        :to="{name: 'categories'}"
+      ></v-list-item>
+      <v-list-item
+        prepend-icon="mdi-wallet"
+        title="Wallet"
+        value="Wallet"
+        :to="{name: 'wallet'}"
       ></v-list-item>
       <v-list-item
         prepend-icon="mdi-clock-start"
-        title="Clock-in" value="clockin"
+        title="Timeline"
+        value="timeline"
+        :to="{name: 'timeline'}"
       ></v-list-item>
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
-        <v-btn block>
+        <v-btn block
+          @click="logout">
           Logout
         </v-btn>
       </div>

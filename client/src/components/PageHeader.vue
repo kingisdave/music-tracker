@@ -1,66 +1,67 @@
 <template>
-  <v-toolbar>
-    <v-app-bar color="grey-darken-2">
-      <v-toolbar-title>
-        <router-link
-          class="home"
-          tag="span"
-          :to="{name: 'root'}">
-          MusicTracker
-        </router-link>
-      </v-toolbar-title>
-      <v-app-bar-nav-icon
-        variant="text"
-        @click.stop="$emit('toggle-drawer')"
-      ></v-app-bar-nav-icon>
+  <v-app-bar color="#3700B3">
+    <v-toolbar-title>
+      <router-link
+        class="home"
+        tag="span"
+        :to="{name: 'root'}"
+        style="color: #f4f4f4"
+      >
+        MusicTracker
+      </router-link>
+    </v-toolbar-title>
+    <v-app-bar-nav-icon
+      variant="text"
+      class="mr-auto navButtons"
+      @click.stop="$emit('toggle-drawer')"
+    ></v-app-bar-nav-icon>
+    <v-btn
+      variant="plain"
+      class="navButtons"
+      :to="{name: 'songs'}">
+      Browse
+    </v-btn>
+
+    <v-spacer></v-spacer>
       <v-btn
         variant="plain"
-        class="navButtons text-darken-1"
-        :to="{name: 'songs'}">
-        Browse
+        class="navButtons"
+        :prepend-icon="theme === 'light' ?
+          'mdi-weather-sunny' :
+          'mdi-weather-night'"
+        @click="$emit('toggle-theme')"
+      >
+      </v-btn>
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        variant="plain"
+        class="navButtons"
+        :to="{name: 'login'}">
+        Login
       </v-btn>
 
-      <v-spacer></v-spacer>
-        <v-btn
-          variant="plain"
-          class="navButtons text-darken-1"
-          :prepend-icon="theme === 'light' ?
-            'mdi-weather-sunny' :
-            'mdi-weather-night'"
-          @click="$emit('toggle-theme')"
-        >
-        </v-btn>
-        <v-btn
-          v-if="!$store.state.isUserLoggedIn"
-          variant="plain"
-          class="navButtons text-darken-1"
-          :to="{name: 'login'}">
-          Login
-        </v-btn>
+      <v-btn
+        v-if="!$store.state.isUserLoggedIn"
+        variant="plain"
+        class="navButtons"
+        :to="{name: 'register'}">
+        Sign Up
+      </v-btn>
 
-        <v-btn
-          v-if="!$store.state.isUserLoggedIn"
-          variant="plain"
-          class="navButtons"
-          :to="{name: 'register'}">
-          Sign Up
-        </v-btn>
+      <v-btn
+        v-if="$store.state.isUserLoggedIn"
+        variant="plain"
+        class="navButtons"
+        @click="logout">
+        Log Out
+      </v-btn>
 
-        <v-btn
-          v-if="$store.state.isUserLoggedIn"
-          variant="plain"
-          class="navButtons"
-          @click="logout">
-          Log Out
-        </v-btn>
+      <!-- <v-icon
+        aria-label="My Account" role="img" aria-hidden="false"
+        :icon="`mdiSvg:${icons.mdiAccount}`"
+      ></v-icon> -->
 
-        <!-- <v-icon
-          aria-label="My Account" role="img" aria-hidden="false"
-          :icon="`mdiSvg:${icons.mdiAccount}`"
-        ></v-icon> -->
-
-    </v-app-bar>
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
@@ -100,6 +101,7 @@ export default {
     color: aquamarine;
   }
   .navButtons {
+    color: white;
     background-color: transparent !important;
   }
   .navButtons:hover {
