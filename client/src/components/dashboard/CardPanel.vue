@@ -1,91 +1,92 @@
 <template>
-  <div>
-    <v-container>
-      <v-row 
-        class="d-flex flex-no-wrap" 
-        justify="space-around">
-        <v-col
-          md="3"
-        >
-          <v-card
-            class="mx-2 cardOne"
-            width="400"
-            theme="dark"
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <v-avatar
-                class="ma-2"
-                size="40"
-                rounded="0"
+  <v-container fluid pa-0>
+    <v-row>
+      <v-col cols="12">
+        <v-sheet color="grey-lighten-3">
+          <v-row
+            class="d-flex flex-no-wrap"
+            justify="space-around">
+            <v-col md="3">
+              <v-card
+                :rounded="rounded"
+                class="mx-2 pa-1 cardOne"
+                width="400"
+                theme="dark"
               >
-                <v-icon size="x-large"
-                  icon="mdi-chart-areaspline-variant"
-                ></v-icon>
-              </v-avatar>
-              <div>
-                <v-card-title class="text-h5">
-                  48.59%
-                </v-card-title>
-                <v-card-subtitle>GROWTH RATE</v-card-subtitle>
-              </div>
-            </div>
-          </v-card>
-        </v-col>
-        <v-col
-          md="3"
-        >
-          <v-card
-            class="mx-2 pa-1 cardTwo"
-            width="400"
-            prepend-icon="mdi-home"
-            theme="dark"
-          >
-            <template v-slot:title>
-              This is a title
-            </template>
-            <v-card-text>
-              This is content
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col
-          md="3"
-        >
-          <v-card
-            class="mx-2 pa-1 cardThree"
-            width="400"
-            prepend-icon="mdi-home"
-            theme="dark"
-          >
-            <template v-slot:title>
-              This is a title
-            </template>
-            <v-card-text>
-              This is content
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col
-          md="3"
-        >
-          <v-card
-            class="mx-2 pa-1 cardFour"
-            width="400"
-            prepend-icon="mdi-home"
-            theme="dark"
-          >
-            <template v-slot:title>
-              This is a title
-            </template>
-            <v-card-text>
-              This is content
-            </v-card-text>
-          </v-card>
-        </v-col>
-
-      </v-row>
-    </v-container>
-  </div>
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <v-avatar
+                    class="ma-2"
+                    size="40"
+                    rounded="0"
+                  >
+                    <v-icon size="x-large"
+                      icon="mdi-chart-areaspline-variant"
+                    ></v-icon>
+                  </v-avatar>
+                  <div>
+                    <v-card-title class="text-h5">
+                      48.59%
+                    </v-card-title>
+                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                  </div>
+                </div>
+              </v-card>
+            </v-col>
+            <v-col md="3">
+              <v-card
+                class="mx-2 pa-1 cardTwo"
+                width="400"
+                theme="dark"
+              >
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <v-avatar
+                    class="ma-2"
+                    size="40"
+                    rounded="0"
+                  >
+                    <v-icon size="x-large"
+                      icon="mdi-chart-areaspline-variant"
+                    ></v-icon>
+                  </v-avatar>
+                  <div>
+                    <v-card-title class="text-h5">
+                      48.59%
+                    </v-card-title>
+                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                  </div>
+                </div>
+              </v-card>
+            </v-col>
+            <v-col md="3">
+              <v-card
+                class="mx-2 pa-1 cardThree"
+                width="400"
+                theme="dark"
+              >
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <v-avatar
+                    class="ma-2"
+                    size="40"
+                    rounded="0"
+                  >
+                    <v-icon size="x-large"
+                      icon="mdi-chart-areaspline-variant"
+                    ></v-icon>
+                  </v-avatar>
+                  <div>
+                    <v-card-title class="text-h5">
+                      48.59%
+                    </v-card-title>
+                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                  </div>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
