@@ -1,16 +1,20 @@
 <template>
-  <v-container fluid pa-0>
+  <v-container fluid>
     <v-row>
-      <v-col cols="12">
-        <v-sheet color="grey-lighten-3">
+      <v-col cols="12"
+        class="pa-2"
+        >
+        <v-sheet
+          class="overflow-auto overflow-y-hidden pa-2"
+          height="160">
           <v-row
             class="d-flex flex-no-wrap"
             justify="space-around">
             <v-col md="3">
               <v-card
                 :rounded="rounded"
-                class="mx-2 pa-1 cardOne"
-                width="400"
+                class="px-3 py-4 m-2 cardOne"
+                width="300"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -34,8 +38,9 @@
             </v-col>
             <v-col md="3">
               <v-card
-                class="mx-2 pa-1 cardTwo"
-                width="400"
+                :rounded="rounded"
+                class="px-3 py-4 m-2 cardTwo"
+                width="300"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -59,8 +64,9 @@
             </v-col>
             <v-col md="3">
               <v-card
-                class="mx-2 pa-1 cardThree"
-                width="400"
+                :rounded="rounded"
+                class="px-3 py-4 m-2 cardThree"
+                width="300"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -82,6 +88,7 @@
                 </div>
               </v-card>
             </v-col>
+
           </v-row>
         </v-sheet>
       </v-col>
