@@ -1,89 +1,98 @@
 <template>
-  <v-card
-    class="mx-auto mt-4 text-center rounded"
-    max-width="344"
-    elevation="12"
-    title="Register"
-  >
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12" md="6">
 
-    <v-alert
-      type="error"
-      v-model="showError"
-      border="start"
-      variant="tonal"
-      closable
-      close-label="Close Alert"
-      color="red"
-    >
-      {{error}}
-    </v-alert>
-    <v-container>
-      <v-form
-        ref="form"
-        v-model="valid"
-        lazy-validation
-        autocomplete="off"
-      >
-        <v-text-field
-          v-model="firstName"
-          color="primary"
-          :rules="firstNameRules"
-          label="First name"
-          variant="underlined"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="lastName"
-          color="primary"
-          :rules="lastNameRules"
-          label="Last name"
-          variant="underlined"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="email"
-          color="primary"
-          :rules="emailRules"
-          label="Email"
-          variant="underlined"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="password"
-          :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="passwordRules"
-          :type="showPass ? 'text' : 'password'"
-          color="primary"
-          label="Password"
-          placeholder="Enter your password"
-          variant="underlined"
-          @click:append="showPass = !showPass"
-          required
-        ></v-text-field>
-
-        <!-- <v-checkbox
-          v-model="checkbox"
-          color="secondary"
-          :rules="[v => !!v || 'You must agree to continue!']"
-          label="I agree to site terms and conditions"
-          required
-        ></v-checkbox> -->
-
-        <v-btn block
-          :disabled="!valid"
-          color="primary"
-          class="my-3"
-          @click="register"
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card
+          class="mx-auto mt-4 text-center rounded"
+          max-width="344"
+          elevation="12"
+          title="Register"
         >
-          Create Account
-        </v-btn>
-      </v-form>
 
-    </v-container>
-  </v-card>
+          <v-alert
+            type="error"
+            v-model="showError"
+            border="start"
+            variant="tonal"
+            closable
+            close-label="Close Alert"
+            color="red"
+          >
+            {{error}}
+          </v-alert>
+          <v-container>
+            <v-form
+              ref="form"
+              v-model="valid"
+              lazy-validation
+              autocomplete="off"
+            >
+              <v-text-field
+                v-model="firstName"
+                color="primary"
+                :rules="firstNameRules"
+                label="First name"
+                variant="underlined"
+                required
+              ></v-text-field>
+
+              <v-text-field
+                v-model="lastName"
+                color="primary"
+                :rules="lastNameRules"
+                label="Last name"
+                variant="underlined"
+                required
+              ></v-text-field>
+
+              <v-text-field
+                v-model="email"
+                color="primary"
+                :rules="emailRules"
+                label="Email"
+                variant="underlined"
+                required
+              ></v-text-field>
+
+              <v-text-field
+                v-model="password"
+                :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
+                :rules="passwordRules"
+                :type="showPass ? 'text' : 'password'"
+                color="primary"
+                label="Password"
+                placeholder="Enter your password"
+                variant="underlined"
+                @click:append="showPass = !showPass"
+                required
+              ></v-text-field>
+
+              <!-- <v-checkbox
+                v-model="checkbox"
+                color="secondary"
+                :rules="[v => !!v || 'You must agree to continue!']"
+                label="I agree to site terms and conditions"
+                required
+              ></v-checkbox> -->
+
+              <v-btn block
+                :disabled="!valid"
+                color="primary"
+                class="my-3"
+                @click="register"
+              >
+                Create Account
+              </v-btn>
+            </v-form>
+
+          </v-container>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
