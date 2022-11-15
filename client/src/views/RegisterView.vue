@@ -2,7 +2,13 @@
   <v-container fluid>
     <v-row>
       <v-col cols="12" md="6">
-
+        <v-img
+          :src="require('../assets/access_account.svg')"
+          class="h-75"
+          contain
+        ></v-img>
+        <br/>
+        <h2 class="text-capitalize">You are welcome to the manager app</h2>
       </v-col>
       <v-col cols="12" md="6">
         <v-card
@@ -11,7 +17,6 @@
           elevation="12"
           title="Register"
         >
-
           <v-alert
             type="error"
             v-model="showError"

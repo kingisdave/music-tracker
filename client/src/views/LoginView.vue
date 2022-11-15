@@ -1,70 +1,89 @@
 <template>
-  <v-card
-    class="mx-auto text-center"
-    max-width="344"
-    title="User Login"
-  >
-    <v-alert
-      type="error"
-      v-model="showError"
-      border="start"
-      variant="tonal"
-      closable
-      close-label="Close Alert"
-      color="red"
-    >
-      {{error}}
-    </v-alert>
-    <v-container>
-      <v-form
-        ref="loginform"
-        v-model="valid"
-        lazy-validation
-      >
-        <v-text-field
-          v-model="email"
-          color="primary"
-          :rules="emailRules"
-          label="Email"
-          variant="underlined"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          v-model="password"
-          :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
-          :rules="passwordRules"
-          :type="showPass ? 'text' : 'password'"
-          color="primary"
-          label="Password"
-          placeholder="Enter your password"
-          variant="underlined"
-          @click:append="showPass = !showPass"
-          required
-        ></v-text-field>
-
-        <!-- <v-checkbox
-          v-model="checkbox"
-          color="secondary"
-          :rules="[v => !!v || 'You must agree to continue!']"
-          label="I agree to site terms and conditions"
-          required
-        ></v-checkbox> -->
-
-        <v-btn block
-          :disabled="!valid"
-          color="primary"
-          class="my-3"
-          @click="login"
+  <v-container fluld>
+    <v-row>
+      <v-col cols="12" md="6">
+        <v-img
+          :src="require('../assets/access_account.svg')"
+          class="h-75"
+          contain
+        ></v-img>
+        <br/>
+        <h2 class="text-capitalize"></h2>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-sheet
+          class="d-flex align-center border bg-surface-variant"
+          height="350"
         >
-          Login
-        </v-btn>
-      </v-form>
-      <!-- <v-divider></v-divider> -->
-      <!-- <div class="error" v-html="error">
-      </div> -->
-    </v-container>
-  </v-card>
+          <v-card
+            class="mx-auto text-center border"
+            cols="12"
+            max-width="344"
+            title="User Login"
+          >
+            <v-alert
+              type="error"
+              v-model="showError"
+              border="start"
+              variant="tonal"
+              closable
+              close-label="Close Alert"
+              color="red"
+            >
+              {{error}}
+            </v-alert>
+            <v-container>
+              <v-form
+                ref="loginform"
+                v-model="valid"
+                lazy-validation
+              >
+                <v-text-field
+                  v-model="email"
+                  color="primary"
+                  :rules="emailRules"
+                  label="Email"
+                  variant="underlined"
+                  required
+                ></v-text-field>
+
+                <v-text-field
+                  v-model="password"
+                  :append-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
+                  :rules="passwordRules"
+                  :type="showPass ? 'text' : 'password'"
+                  color="primary"
+                  label="Password"
+                  placeholder="Enter your password"
+                  variant="underlined"
+                  @click:append="showPass = !showPass"
+                  required
+                ></v-text-field>
+
+                <!-- <v-checkbox
+                  v-model="checkbox"
+                  color="secondary"
+                  :rules="[v => !!v || 'You must agree to continue!']"
+                  label="I agree to site terms and conditions"
+                  required
+                ></v-checkbox> -->
+
+                <v-btn block
+                  :disabled="!valid"
+                  color="primary"
+                  class="my-3"
+                  @click="login"
+                >
+                  Login
+                </v-btn>
+              </v-form>
+
+            </v-container>
+          </v-card>
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
