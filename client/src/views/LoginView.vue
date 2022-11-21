@@ -10,16 +10,19 @@
         <br/>
         <h2 class="text-capitalize"></h2>
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12" md="6">
         <v-sheet
-          class="d-flex align-center border bg-surface-variant"
+          class="bg-surface-variant"
           height="350"
         >
           <v-card
-            class="mx-auto text-center border"
+            class="mx-auto"
+            md="6"
             cols="12"
-            max-width="344"
+            color="white"
             title="User Login"
+            elevation="4"
           >
             <v-alert
               type="error"
@@ -70,8 +73,9 @@
 
                 <v-btn block
                   :disabled="!valid"
-                  color="primary"
-                  class="my-3"
+                  color="#3700B3"
+                  class="my-3 text-white"
+
                   @click="login"
                 >
                   Login
