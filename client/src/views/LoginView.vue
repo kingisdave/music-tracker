@@ -13,7 +13,7 @@
       <v-col
         cols="12" md="6">
         <v-sheet
-          class="bg-surface-variant"
+          class="mt-4 bg-surface-variant"
           height="350"
         >
           <v-card
@@ -21,9 +21,12 @@
             md="6"
             cols="12"
             color="white"
-            title="User Login"
             elevation="4"
           >
+            <div class="d-flex justify-center">
+              <h2>Login Here</h2>
+              <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
+            </div>
             <v-alert
               type="error"
               v-model="showError"
@@ -63,24 +66,34 @@
                   required
                 ></v-text-field>
 
-                <!-- <v-checkbox
-                  v-model="checkbox"
-                  color="secondary"
-                  :rules="[v => !!v || 'You must agree to continue!']"
-                  label="I agree to site terms and conditions"
-                  required
-                ></v-checkbox> -->
-
                 <v-btn block
                   :disabled="!valid"
                   color="#3700B3"
-                  class="my-3 text-white"
-
-                  @click="login"
+                  class="my-3 login-btn-color"
+                  @click="login('account')"
                 >
-                  Login
+                  Signin
                 </v-btn>
               </v-form>
+              <div class="my-4 text-center">
+                Sign in with your social account 
+              </div>
+              <v-btn block
+                color="#0066ff"
+                class="my-3 login-btn-color"
+                prepend-icon="mdi-facebook"
+                @click="login('facebook')"
+              >
+                Connect with Facebook
+              </v-btn>
+              <v-btn block
+                color="#ff0000"
+                class="my-3 login-btn-color"
+                prepend-icon="mdi-google"
+                @click="login('email')"
+              >
+                Login with Gmail
+              </v-btn>
 
             </v-container>
           </v-card>
@@ -113,9 +126,9 @@ export default {
     }
   },
   methods: {
-    async login () {
-      console.log(this.email, 'dksm')
-      console.log(this.password, ' PSS')
+    async login (logtype) {
+      console.log(logtype, 'dksm')
+      // console.log(this.password, ' PSS')
       // this.$refs.loginform.validate()
       try {
         const response = await AuthenticationService.login({
@@ -139,5 +152,12 @@ export default {
 <style scoped>
   .error {
     color: red;
+  }
+  .login-btn-color{
+    color: #ffffff;
+  }
+  .login-btn-color:hover{
+    color: #000000;
+    background-color: #ffffff;
   }
 </style>

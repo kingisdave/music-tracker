@@ -10,11 +10,11 @@
           <v-row
             class="d-flex flex-no-wrap"
             justify="space-around">
-            <v-col md="3">
+            <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
                 class="px-3 py-4 m-2 cardOne"
-                width="300"
+                width="250"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -36,11 +36,11 @@
                 </div>
               </v-card>
             </v-col>
-            <v-col md="3">
+            <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
                 class="px-3 py-4 m-2 cardTwo"
-                width="300"
+                width="250"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -62,11 +62,11 @@
                 </div>
               </v-card>
             </v-col>
-            <v-col md="3">
+            <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
                 class="px-3 py-4 m-2 cardThree"
-                width="300"
+                width="250"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">

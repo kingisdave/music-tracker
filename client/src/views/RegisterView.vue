@@ -92,6 +92,25 @@
                 Create Account
               </v-btn>
             </v-form>
+            <div class="my-4 text-center">
+                Sign in with your social account 
+              </div>
+              <v-btn block
+                color="#0066ff"
+                class="my-3 login-btn-color"
+                prepend-icon="mdi-facebook"
+                @click="login('facebook')"
+              >
+                Connect with Facebook
+              </v-btn>
+              <v-btn block
+                color="#ff0000"
+                class="my-3 login-btn-color"
+                prepend-icon="mdi-google"
+                @click="login('email')"
+              >
+                Login with Gmail
+              </v-btn>
 
           </v-container>
         </v-card>
