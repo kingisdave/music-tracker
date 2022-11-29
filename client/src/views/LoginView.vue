@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" md="6">
         <v-img
-          :src="require('../assets/access_account.svg')"
+          :src="require('../assets/svgs/access_account.svg')"
           class="h-75"
           contain
         ></v-img>
@@ -76,7 +76,7 @@
                 </v-btn>
               </v-form>
               <div class="my-4 text-center">
-                Sign in with your social account 
+                Sign in with your social account
               </div>
               <v-btn block
                 color="#0066ff"

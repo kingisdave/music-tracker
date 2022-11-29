@@ -9,25 +9,28 @@
     ></side-navigation-bar>
     <v-main>
       <v-container fluid
-        class="fill-height"
+        class="fill-height pa-0"
         style="background: #5114DD33"
       >
         <router-view/>
       </v-container>
     </v-main>
 
+    <footer-panel></footer-panel>
   </v-app>
 </template>
 <script>
 import { useTheme } from 'vuetify'
 import PageHeader from '@/components/PageHeader.vue'
 import SideNavigationBar from '@/components/SideNavigationBar.vue'
+import FooterPanel from '@/components/FooterPanel.vue'
 
 export default {
   name: 'App',
   components: {
     PageHeader,
-    SideNavigationBar
+    SideNavigationBar,
+    FooterPanel
   },
   data: () => ({
     drawer: false,

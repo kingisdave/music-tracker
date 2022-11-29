@@ -5,16 +5,14 @@
         class="pa-2"
         >
         <v-sheet
-          class="overflow-auto overflow-y-hidden pa-2"
-          height="160">
+          class=" pa-2">
           <v-row
-            class="d-flex flex-no-wrap"
+            class="d-flex flex-wrap"
             justify="space-around">
             <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
-                class="px-3 py-4 m-2 cardOne"
-                width="250"
+                class="px-3 py-4 m-1 cardOne"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
@@ -23,15 +21,15 @@
                     size="40"
                     rounded="0"
                   >
-                    <v-icon size="x-large"
-                      icon="mdi-chart-areaspline-variant"
+                    <v-icon size="xx-large"
+                      icon="mdi-account-group"
                     ></v-icon>
                   </v-avatar>
                   <div>
-                    <v-card-title class="text-h5">
-                      48.59%
+                    <v-card-title class="text-xs-h6 text-md-h5">
+                      300K
                     </v-card-title>
-                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                    <v-card-subtitle>Users</v-card-subtitle>
                   </div>
                 </div>
               </v-card>
@@ -39,13 +37,12 @@
             <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
-                class="px-3 py-4 m-2 cardTwo"
-                width="250"
+                class="px-3 py-4 m-1 cardTwo"
                 theme="dark"
               >
                 <div class="d-flex flex-no-wrap justify-space-between">
                   <v-avatar
-                    class="ma-2"
+                    class="ma-1"
                     size="40"
                     rounded="0"
                   >
@@ -54,10 +51,10 @@
                     ></v-icon>
                   </v-avatar>
                   <div>
-                    <v-card-title class="text-h5">
+                    <v-card-title class="text-xs-h6 text-md-h5">
                       48.59%
                     </v-card-title>
-                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                    <v-card-subtitle>Growth</v-card-subtitle>
                   </div>
                 </div>
               </v-card>
@@ -65,11 +62,11 @@
             <v-col md="3" cols="6">
               <v-card
                 :rounded="rounded"
-                class="px-3 py-4 m-2 cardThree"
-                width="250"
+                class="px-4 py-4 m-1 cardThree"
                 theme="dark"
               >
-                <div class="d-flex flex-no-wrap justify-space-between">
+                <div
+                  class="d-flex flex-no-wrap justify-space-between">
                   <v-avatar
                     class="ma-2"
                     size="40"
@@ -80,10 +77,36 @@
                     ></v-icon>
                   </v-avatar>
                   <div>
-                    <v-card-title class="text-h5">
-                      48.59%
+                    <v-card-title class="text-xs-h6 text-md-h5">
+                      1.5M
                     </v-card-title>
-                    <v-card-subtitle>GROWTH RATE</v-card-subtitle>
+                    <v-card-subtitle class="text-small">Downloads</v-card-subtitle>
+                  </div>
+                </div>
+              </v-card>
+            </v-col>
+            <v-col md="3" cols="6">
+              <v-card
+                :rounded="rounded"
+                class="px-4 py-4 m-1 cardFour"
+                theme="dark"
+              >
+                <div
+                  class="d-flex flex-no-wrap justify-space-between">
+                  <v-avatar
+                    class="ma-2"
+                    size="40"
+                    rounded="0"
+                  >
+                    <v-icon size="x-large"
+                      icon="mdi-chart-areaspline-variant"
+                    ></v-icon>
+                  </v-avatar>
+                  <div>
+                    <v-card-title class="text-xs-h6 text-md-h5">
+                      500K
+                    </v-card-title>
+                    <v-card-subtitle>Stores</v-card-subtitle>
                   </div>
                 </div>
               </v-card>

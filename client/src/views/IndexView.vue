@@ -1,28 +1,25 @@
 <template>
-  <v-card>
-    <v-layout>
-      <v-img
-        :src="require('../assets/logo.svg')"
-        class="my-3"
-        contain
-        height="200"
-      />
+  <v-card class="ml-0 pa-0">
+    <welcome-panel/>
+    <carousel-panel/>
 
-      <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
+    <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
       <v-card-text>
         The navigation drawer will appear from the bottom on smaller size screens.
       </v-card-text>
-    </v-layout>
   </v-card>
-  <!-- <HelloWorld /> -->
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import WelcomePanel from '@/components/WelcomePanel.vue'
+import CarouselPanel from '@/components/CarouselPanel.vue'
 
-export default defineComponent({
-  name: 'HomeView',
-
+export default {
+  name: 'IndexView',
+  components: {
+    WelcomePanel,
+  CarouselPanel
+  },
   data: () => ({
     drawer: false,
     group: null,
@@ -51,5 +48,5 @@ export default defineComponent({
       this.drawer = false
     }
   }
-})
+}
 </script>
