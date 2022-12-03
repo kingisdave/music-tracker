@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import IndexView from '../views/IndexView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import LoginView from '../views/LoginView.vue'
+import PaymentView from '../views/privates/PaymentView.vue'
 import AllSongsView from '../views/songs/Index.vue'
 import CreateSong from '../views/songs/CreateSong.vue'
 import ViewSong from '../views/songs/ViewSong.vue'
@@ -28,6 +29,11 @@ const routes = [
     path: '/songs',
     name: 'songs',
     component: AllSongsView
+  },
+  {
+    path: '/payment',
+    name: 'payment-view',
+    component: PaymentView
   },
   {
     path: '/songs/create',
