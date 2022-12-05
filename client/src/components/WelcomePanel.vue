@@ -10,12 +10,12 @@
         <v-col cols="6"
           class="px-10 text-white">
           <v-card-text>
-            <div class="text-h4 my-3 text-center">
+            <div class="text-h4 mx-10 my-3 text-start">
               <h1>Let's Music</h1>
               <div class="my-4">With</div>
               <h1 class="">Ease</h1>
             </div>
-            <div class="mx-12" >
+            <div class="mx-10" >
               <div>Whitehaven Beach</div>
               <div>Whitsunday Island, Whitsunday Islands</div>
             </div>
