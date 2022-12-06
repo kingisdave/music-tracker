@@ -2,16 +2,17 @@
 
   <v-container fluid>
     <v-row>
-      <v-col cols="12">
+      <v-col cols="7">
+        <h3>Select your payment method</h3>
         <v-card
-          variant="outlined"
+          variant="plain"
         >
           <v-expansion-panels>
             <v-expansion-panel>
               <v-expansion-panel-title
                 expand-icon="mdi-menu-down"
               >
-                <v-icon icon="mdi-credit-card"></v-icon>
+                <v-avatar icon="mdi-credit-card"></v-avatar>
                 Credit Card
               </v-expansion-panel-title>
               <v-expansion-panel-text>
@@ -22,40 +23,63 @@
                 >
                   <div>
                     <v-row>
-                      <v-col>
-                        
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="firstName"
+                          :counter="10"
+                          :rules="nameRules"
+                          label="First name"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="6">
+                        <v-text-field
+                          v-model="lastName"
+                          :counter="10"
+                          :rules="nameRules"
+                          label="Last name"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          v-model="cardNumber"
+                          :counter="20"
+                          :rules="nameRules"
+                          label="Card Number"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="8">
+                        <v-text-field
+                          v-model="email"
+                          :rules="emailRules"
+                          label="E-mail"
+                          prepend-inner-icon="mdi-email"
+                          required
+                        ></v-text-field>
+                      </v-col>
+                      <v-col cols="4">
+                        <v-select
+                          v-model="select"
+                          :items="items"
+                          :rules="[v => !!v || 'Item is required']"
+                          label="Item"
+                          prepend-inner-icon="mdi-earth"
+                          required
+                        ></v-select>
+                      </v-col>
+                      <v-col cols="12">
+                        <v-text-field
+                          v-model="lastName"
+                          :counter="10"
+                          :rules="nameRules"
+                          label="Last name"
+                          required
+                        ></v-text-field>
                       </v-col>
                     </v-row>
                   </div>
-                  <v-text-field
-                    v-model="name"
-                    :counter="10"
-                    :rules="nameRules"
-                    label="Name"
-                    required
-                  ></v-text-field>
-
-                  <v-text-field
-                    v-model="email"
-                    :rules="emailRules"
-                    label="E-mail"
-                    required
-                  ></v-text-field>
-
-                  <v-select
-                    v-model="select"
-                    :items="items"
-                    :rules="[v => !!v || 'Item is required']"
-                    label="Item"
-                    required
-                  ></v-select>
-
-                  <v-checkbox
-                    v-model="checkbox"
-                    :rules="[v => !!v || 'You must agree to continue!']"
-                    label="Do you agree?"
-                    required
-                  ></v-checkbox>
 
                   <v-btn
                     color="success"
@@ -69,98 +93,35 @@
               </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <!-- <v-row
-                align="center"
-                class="spacer"
-                no-gutters
-              >
-                <v-col
-                  cols="4"
-                  sm="2"
-                  md="1"
-                >
-                  <v-avatar
-                    size="36px"
-                  >
-                    <v-img
-                      v-if="message.avatar"
-                      alt="Avatar"
-                      src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-                    ></v-img>
-                    <v-icon
-                      v-else
-                      :color="message.color"
-                      :icon="message.icon"
-                    ></v-icon>
-                  </v-avatar>
-                </v-col>
-
-                <v-col
-                  class="hidden-xs-only text-left ml-2"
-                  sm="5"
-                  md="3"
-                >
-                  <span
-                    v-if="message.total"
-                    class="text-grey"
-                  >
-                    &nbsp;({{ message.total }})
-                  </span>
-                </v-col>
-                <v-col
-                  class="text-no-wrap text-left"
-                  cols="5"
-                  sm="3"
-                >
-                  <v-chip
-                    v-if="message.new"
-                    :color="`${message.color}-lighten-1`"
-                    class="ml-0 mr-2"
-                    label
-                    small
-                  >
-                    {{ message.new }} new
-                  </v-chip>
-                  <strong v-html="message.title"></strong>
-                </v-col>
-
-                <v-col
-                  v-if="message.excerpt"
-                  class="text-medium-emphasis text-truncate hidden-sm-and-down"
-                >
-                  &mdash;
-                  {{ message.excerpt }}
-                </v-col>
-              </v-row> -->
-              <v-expansion-panel-text>
-                Some content
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-            <!-- <v-expansion-panel
-            >
               <v-expansion-panel-title
                 expand-icon="mdi-menu-down"
               >
                 <v-avatar
-                  size="36px"
-                >
-                  <v-img
-                    v-if="message.avatar"
-                    alt="Avatar"
-                    src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
-                  ></v-img>
-                  <v-icon
-                    v-else
-                    :color="message.color"
-                    :icon="message.icon"
-                  ></v-icon>
-                </v-avatar>
+                  size="30"
+                  :image="require('../../assets/svgs/paypal.svg')"
+                  class="mr-2"
+                ></v-avatar>
+                Paypal
+              </v-expansion-panel-title>
+              <v-expansion-panel-text>
+                Some content
+              </v-expansion-panel-text>
+            </v-expansion-panel>
+            <v-expansion-panel>
+              <v-expansion-panel-title
+                expand-icon="mdi-menu-down"
+              >
+                <v-avatar
+                  size="30"
+                  :image="require('../../assets/svgs/paystack.svg')"
+                  class="mr-2"
+                ></v-avatar>
                 Paystack
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 Some content
               </v-expansion-panel-text>
-            </v-expansion-panel> -->
+            </v-expansion-panel>
             <!-- <v-expansion-panel
             >
               <v-expansion-panel-title
@@ -174,77 +135,35 @@
               </v-expansion-panel-text>
             </v-expansion-panel> -->
           </v-expansion-panels>
-          <!-- <v-tabs
-            v-model="tab"
-          >
-            <v-tab value="creditCard"
-              color="primary"
-            >Credit Card</v-tab>
-            <v-tab value="payPal"
-              color="primary"
-            >Paypal</v-tab>
-            <v-tab value="phonePal"
-              color="primary"
-            >Phone</v-tab>
-          </v-tabs>
-          <v-window v-model="tab">
-            <v-window-item value="creditCard">
-              <v-form
-                ref="form"
-                v-model="valid"
-                lazy-validation
-              >
-                <v-text-field
-                  v-model="name"
-                  :counter="10"
-                  :rules="nameRules"
-                  label="Name"
-                  required
-                ></v-text-field>
 
-                <v-text-field
-                  v-model="email"
-                  :rules="emailRules"
-                  label="E-mail"
-                  required
-                ></v-text-field>
 
-                <v-select
-                  v-model="select"
-                  :items="items"
-                  :rules="[v => !!v || 'Item is required']"
-                  label="Item"
-                  required
-                ></v-select>
-
-                <v-checkbox
-                  v-model="checkbox"
-                  :rules="[v => !!v || 'You must agree to continue!']"
-                  label="Do you agree?"
-                  required
-                ></v-checkbox>
-
-                <v-btn
-                  color="success"
-                  class="mr-4"
-                  @click="validate"
-                >
-                  Validate
-                </v-btn>
-
-              </v-form>
-            </v-window-item>
-
-            <v-window-item value="payPal">
-              PayPal
-            </v-window-item>
-
-            <v-window-item value="phonePal">
-              Thr
-            </v-window-item>
-          </v-window> -->
         </v-card>
 
+      </v-col>
+      <v-col cols="5">
+        <v-card
+          class="mx-auto"
+          variant="outlined"
+        >
+          <v-card-text>
+            <p class="text-h5 text--primary">
+              Product Information
+            </p>
+            <v-divider></v-divider>
+            <div class="text--primary py-2">
+              <p class="text-h6 my-2">Cafe Badilico</p>
+              <p class="my-2">Local Favorite</p>
+              <div class="d-flex justify-space-between my-2">
+                <span>$</span>
+                <v-chip color="primary" dark> Italian, Cafe</v-chip>
+              </div>
+              <div class="my-2">Small plates, salads & sandwiches - an
+                intimate setting with 12 indoor seats
+                plus patio seating.
+              </div>
+            </div>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
