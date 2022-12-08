@@ -8,6 +8,7 @@ import CreateSong from '../views/songs/CreateSong.vue'
 import ViewSong from '../views/songs/ViewSong.vue'
 import EditSong from '../views/songs/EditSong.vue'
 import DashboardView from '../views/privates/DashboardView.vue'
+import AccountView from '../views/privates/AccountView.vue'
 
 const routes = [
   {
@@ -58,7 +59,7 @@ const routes = [
   {
     path: '/account',
     name: 'account',
-    component: DashboardView
+    component: AccountView
   },
   {
     path: '/admin',

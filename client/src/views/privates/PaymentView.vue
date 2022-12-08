@@ -59,15 +59,26 @@
                           required
                         ></v-text-field>
                       </v-col>
-                      <v-col cols="4">
+                      <v-col cols="4"
+                       class="d-flex">
                         <v-select
-                          v-model="select"
-                          :items="items"
+                          v-model="country"
+                          :items="countries"
+                          item-text="mobilecode"
+                          item-value="name"
+                          return-object
                           :rules="[v => !!v || 'Item is required']"
-                          label="Item"
+                          label="Country"
                           prepend-inner-icon="mdi-earth"
                           required
-                        ></v-select>
+                        >
+                      </v-select>
+                      <v-text-field
+                        v-model="zipCode"
+                        :rules="zipRules"
+                        label="Zip"
+                        required
+                      ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-text-field
@@ -80,15 +91,15 @@
                       </v-col>
                     </v-row>
                   </div>
-
-                  <v-btn
-                    color="success"
-                    class="mr-4"
-                    @click="validate"
-                  >
-                    Validate
-                  </v-btn>
-
+                  <div class="d-flex justify-center">
+                    <v-btn
+                      color="success"
+                      class="mr-4"
+                      @click="validate"
+                    >
+                    Continue to Review
+                    </v-btn>
+                  </div>
                 </v-form>
               </v-expansion-panel-text>
             </v-expansion-panel>
@@ -170,11 +181,15 @@
 </template>
 
 <script>
+import countries from '../../utilities/countries.js'
+
 export default {
   data: () => ({
     tab: null,
+    country: null,
+    // country: {abbr: "GB", name: "United Kingdom",mobilecode: "+44"},
+    countries: countries
   }),
-
   methods: {
 
   }
