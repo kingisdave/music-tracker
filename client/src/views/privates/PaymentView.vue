@@ -2,12 +2,15 @@
 
   <v-container fluid>
     <v-row>
+      <v-col cols="12">
+        <custom-stepper/>
+      </v-col>
       <v-col cols="7">
         <h3>Select your payment method</h3>
         <v-card
           variant="plain"
         >
-          <v-expansion-panels>
+          <v-expansion-panels variant="popout">
             <v-expansion-panel>
               <v-expansion-panel-title
                 expand-icon="mdi-menu-down"
@@ -23,21 +26,12 @@
                 >
                   <div>
                     <v-row>
-                      <v-col cols="6">
+                      <v-col cols="12">
                         <v-text-field
-                          v-model="firstName"
-                          :counter="10"
+                          v-model="fullName"
+                          :counter="30"
                           :rules="nameRules"
-                          label="First name"
-                          required
-                        ></v-text-field>
-                      </v-col>
-                      <v-col cols="6">
-                        <v-text-field
-                          v-model="lastName"
-                          :counter="10"
-                          :rules="nameRules"
-                          label="Last name"
+                          label="Full name"
                           required
                         ></v-text-field>
                       </v-col>
@@ -60,42 +54,34 @@
                         ></v-text-field>
                       </v-col>
                       <v-col cols="4"
-                       class="d-flex">
+                        class="d-flex">
                         <v-select
                           v-model="country"
                           :items="countries"
-                          item-text="mobilecode"
-                          item-value="name"
+                          item-title="name"
+                          item-value="mobilecode"
                           return-object
                           :rules="[v => !!v || 'Item is required']"
                           label="Country"
                           prepend-inner-icon="mdi-earth"
                           required
                         >
-                      </v-select>
-                      <v-text-field
-                        v-model="zipCode"
-                        :rules="zipRules"
-                        label="Zip"
-                        required
-                      ></v-text-field>
-                      </v-col>
-                      <v-col cols="12">
+                        </v-select>
                         <v-text-field
-                          v-model="lastName"
-                          :counter="10"
-                          :rules="nameRules"
-                          label="Last name"
+                          v-model="zipCode"
+                          :rules="zipRules"
+                          label="Zip"
                           required
                         ></v-text-field>
                       </v-col>
                     </v-row>
                   </div>
                   <div class="d-flex justify-center">
-                    <v-btn
-                      color="success"
-                      class="mr-4"
-                      @click="validate"
+                    <v-btn dark
+                      color="#009933"
+                      class="px-3 login-btn-color"
+                      :disabled="!valid"
+                      @click="login('account')"
                     >
                     Continue to Review
                     </v-btn>
@@ -115,7 +101,16 @@
                 Paypal
               </v-expansion-panel-title>
               <v-expansion-panel-text>
-                Some content
+                <div class="d-flex justify-center">
+                  <v-btn dark
+                    color="#009933"
+                    class="px-5 py-3 login-btn-color"
+                    :disabled="!valid"
+                    @click="login('account')"
+                  >
+                  Continue to Review
+                  </v-btn>
+                </div>
               </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
@@ -131,6 +126,16 @@
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 Some content
+                <div class="d-flex justify-center">
+                  <v-btn dark
+                    color="#009933"
+                    class="px-5 py-3 login-btn-color"
+                    :disabled="!valid"
+                    @click="login('account')"
+                  >
+                  Continue to Review
+                  </v-btn>
+                </div>
               </v-expansion-panel-text>
             </v-expansion-panel>
             <!-- <v-expansion-panel
@@ -166,7 +171,8 @@
               <p class="my-2">Local Favorite</p>
               <div class="d-flex justify-space-between my-2">
                 <span>$</span>
-                <v-chip color="primary" dark> Italian, Cafe</v-chip>
+                <span> Italian, Cafe</span>
+                <!-- <v-chip color="primary"> Italian, Cafe</v-chip> -->
               </div>
               <div class="my-2">Small plates, salads & sandwiches - an
                 intimate setting with 12 indoor seats
@@ -181,7 +187,8 @@
 </template>
 
 <script>
-import countries from '../../utilities/countries.js'
+import countries from '@/utilities/countries.js'
+import CustomStepper from '@/components/CustomStepper.vue'
 
 export default {
   data: () => ({

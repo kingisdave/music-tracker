@@ -3,7 +3,7 @@
     <v-img
       class="align-center text-white"
       height="80vh"
-      :src="require('../assets/images/Music Education Training Concert Background.jpg')"
+      :src="require('../../assets/images/Music Education Training Concert Background.jpg')"
       cover
     >
       <v-row class="h-100 align-center">
@@ -20,14 +20,13 @@
               <div>Whitsunday Island, Whitsunday Islands</div>
             </div>
           </v-card-text>
-
         </v-col>
         <v-col cols="6">
           <v-card>
             <v-img
               class="align-center text-white"
               height="70vh"
-              :src="require('../assets/images/mobile-pix.png')"
+              :src="require('../../assets/images/mobile-pix.png')"
               contain
             ></v-img>
           </v-card>

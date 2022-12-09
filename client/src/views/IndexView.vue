@@ -1,24 +1,29 @@
 <template>
   <v-card class="ml-0 pa-0">
     <welcome-panel/>
+
     <carousel-panel/>
 
-    <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
-      <v-card-text>
-        The navigation drawer will appear from the bottom on smaller size screens.
-      </v-card-text>
+    <logo-panel/>
+
+    <about-panel/>
+
   </v-card>
 </template>
 
 <script>
-import WelcomePanel from '@/components/WelcomePanel.vue'
+import WelcomePanel from '@/components/landing/WelcomePanel.vue'
 import CarouselPanel from '@/components/CarouselPanel.vue'
+import LogoPanel from '@/components/landing/LogoPanel.vue'
+import AboutPanel from '@/components/landing/AboutPanel.vue'
 
 export default {
   name: 'IndexView',
   components: {
     WelcomePanel,
-  CarouselPanel
+    CarouselPanel,
+    LogoPanel,
+    AboutPanel
   },
   data: () => ({
     drawer: false,
