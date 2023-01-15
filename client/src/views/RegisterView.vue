@@ -91,8 +91,8 @@
 
               <v-btn block
                 :disabled="!valid"
-                color="primary"
-                class="my-3"
+                color="#3700B3"
+                class="my-3 text-white login-btn-color"
                 @click="register"
               >
                 Create Account
@@ -180,6 +180,6 @@ export default {
 
 <style scoped>
   .error {
-    color: red;
+    color: white;
   }
 </style>
