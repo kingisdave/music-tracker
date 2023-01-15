@@ -11,10 +11,12 @@
         <h2 class="text-capitalize">You are welcome to the manager app</h2>
       </v-col>
       <v-col cols="12" md="6">
+
         <v-card
           class="mx-auto mt-4 text-center rounded"
           max-width="344"
           elevation="12"
+          color="white"
           title="Register"
         >
           <v-alert
