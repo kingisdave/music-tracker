@@ -11,19 +11,20 @@
         <h2 class="text-capitalize"></h2>
       </v-col>
       <v-col
-        cols="12" md="6">
+        cols="12" md="4"
+        class="mx-auto">
         <v-sheet
           class="mt-4 bg-surface-variant"
           height="350"
         >
           <v-card
             class="mx-auto"
-            md="6"
+            md="4"
             cols="12"
             color="white"
             elevation="4"
           >
-            <div class="d-flex justify-center">
+            <div class="d-flex justify-center pt-3">
               <h2>Login Here</h2>
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>

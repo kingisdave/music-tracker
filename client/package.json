@@ -13,7 +13,7 @@
     "@mdi/font": "5.9.55",
     "axios": "^0.27.2",
     "chart.js": "^3.9.1",
-    "core-js": "^3.8.3",
+    "core-js": "^3.27.1",
     "lodash": "^4.17.21",
     "roboto-fontface": "*",
     "vue": "^3.2.13",
