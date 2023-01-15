@@ -14,7 +14,7 @@
         cols="12" md="4"
         class="mx-auto">
         <v-sheet
-          class="mt-4 bg-surface-variant"
+          class="mt-4"
           height="350"
         >
           <v-card
@@ -95,6 +95,7 @@
               >
                 Login with Gmail
               </v-btn>
+              
 
             </v-container>
           </v-card>
@@ -158,7 +159,7 @@ export default {
     color: #ffffff;
   }
   .login-btn-color:hover{
-    color: #000000;
-    background-color: #ffffff;
+    color: #fff;
+    background-color: #2F2E41 !important;
   }
 </style>
