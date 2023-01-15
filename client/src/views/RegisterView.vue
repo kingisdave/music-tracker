@@ -13,7 +13,7 @@
       <v-col cols="12" md="6">
 
         <v-card
-          class="mx-auto mt-4 text-center rounded"
+          class="mx-auto mt-2 text-center rounded"
           max-width="344"
           elevation="12"
           color="white"
@@ -37,24 +37,28 @@
               lazy-validation
               autocomplete="off"
             >
-              <v-text-field
-                v-model="firstName"
-                color="primary"
-                :rules="firstNameRules"
-                label="First name"
-                variant="underlined"
-                required
-              ></v-text-field>
-
-              <v-text-field
-                v-model="lastName"
-                color="primary"
-                :rules="lastNameRules"
-                label="Last name"
-                variant="underlined"
-                required
-              ></v-text-field>
-
+              <v-row>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="firstName"
+                    color="primary"
+                    :rules="firstNameRules"
+                    label="First name"
+                    variant="underlined"
+                    required
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="lastName"
+                    color="primary"
+                    :rules="lastNameRules"
+                    label="Last name"
+                    variant="underlined"
+                    required
+                  ></v-text-field>
+                </v-col>
+              </v-row>
               <v-text-field
                 v-model="email"
                 color="primary"
