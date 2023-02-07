@@ -9,7 +9,7 @@ module.exports = {
       // const search = 'Wade in the Water.'
       const search = req.query.search
       if(search) {
-        songs  await Song.findAll({
+        songs = await Song.findAll({
           where: {
             [Op.or]: [
               'title','artist','genre','album'
