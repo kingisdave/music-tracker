@@ -18,10 +18,9 @@
           height="350"
         >
           <v-card
-            class="mx-auto"
+            class="mx-auto bg-white"
             md="4"
             cols="12"
-            color="white"
             elevation="4"
           >
             <div class="d-flex justify-center pt-3">
@@ -29,12 +28,11 @@
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>
             <v-alert
-              type="error"
-              v-model="showError"
-              variant="tonal"
-              closable
+              color="error"
+              icon="$error"
+              text="logError"
               close-label="Close Alert"
-              color="red"
+             
             >
               {{error}}
             </v-alert>
@@ -122,7 +120,7 @@ export default {
         v => !!v || 'Password is required'
       ],
       showError: false,
-      error: null
+      logError: null
       // checkbox: false,
     }
   },
@@ -142,7 +140,7 @@ export default {
           name: 'songs'
         })
       } catch (err) {
-        this.error = err.response.data.error
+        this.logError = err.response.data.error
         this.showError = true
       }
     }
