@@ -31,7 +31,6 @@
             <v-alert
               type="error"
               v-model="showError"
-              border="start"
               variant="tonal"
               closable
               close-label="Close Alert"
