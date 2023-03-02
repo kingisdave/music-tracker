@@ -30,7 +30,8 @@
           <v-btn
             rounded="lg"
             size="large"
-            color="primary"
+            theme="dark"
+            color="success"
             :to="{
               name: 'song-edit',
               params () {
@@ -45,6 +46,7 @@
           <v-btn
             v-if="isUserLoggedIn && !isBookmarked"
             rounded="lg"
+            theme="dark"
             size="large"
             @click="addBookmark"
             color="primary"
@@ -55,6 +57,7 @@
             v-if="isUserLoggedIn && isBookmarked"
             rounded="lg"
             size="large"
+            theme="dark"
             @click="unBookmark"
             color="secondary"
           >
@@ -67,6 +70,7 @@
 </template>
 
 <script>
+import BookmarkService from '@/services/BookmarkService'
 import { mapState } from 'vuex'
 export default {
   props: [
@@ -85,7 +89,7 @@ export default {
   async mounted () {
     const bookmark = (await BookmarkService.index({
       songId: 1,
-      userId: 1,
+      userId: 3,
       bookmarkType: 'song'
     })).data
     this.isBookmarked = !!bookmark

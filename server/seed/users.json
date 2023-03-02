@@ -2,7 +2,13 @@
   {
     "firstName": "first",
     "lastName": "test",
-    "email": "testing@gmail.com",
+    "email": "first@gmail.com",
+    "password": "1234567890" 
+  },
+  {
+    "firstName": "second",
+    "lastName": "test",
+    "email": "second@gmail.com",
     "password": "1234567890" 
   }
 ]
