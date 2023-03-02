@@ -21,22 +21,12 @@ fs
     db[model.name] = model
   })
 
-// Object.keys(db).forEach(function (modelName) {
-//   if ('associate' in db[modelName]) {
-//     console.log('DBDBD DBD: ',db[modelName])
-//     db[modelName].associate(db)
-//   }
-// })
-function associateModels(db) {
-  Object.keys(db).forEach((modelName) => {
-    console.log("MODEL NAME::: ",modelName)
-    if ('associate' in db[modelName]) {
-      db[modelName].associate(db);
-    }
-  });
-}
-
-associateModels(db);
+Object.keys(db).forEach(function (modelName) {
+  if ('associate' in db[modelName]) {
+    console.log('DBDBD DBD: ',db[modelName])
+    db[modelName].associate(db)
+  }
+})
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize
