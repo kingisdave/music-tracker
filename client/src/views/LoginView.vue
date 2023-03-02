@@ -31,6 +31,7 @@
               <v-alert
                 class="small mx-1"
                 theme="dark"
+                v-model="showError"
                 closable
                 close-label="Close Alert"
                 color="#C51162"
