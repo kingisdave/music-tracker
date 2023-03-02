@@ -27,22 +27,9 @@
               <h2>Login Here</h2>
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>
-            <!-- <error-panel :modelValue="showError">
+            <error-panel v-model="showError">
               <small>{{ logError }}</small>
-            </error-panel> -->
-            <div class="px-1">
-              <v-alert
-                class="small mx-1"
-                theme="dark"
-                v-model="showError"
-                closable
-                close-label="Close Alert"
-                color="#C51162"
-                elevation="2"
-              >
-                <small>{{ logError }}</small>
-              </v-alert>
-            </div>
+            </error-panel>
             <v-container>
               <v-form
                 ref="loginform"

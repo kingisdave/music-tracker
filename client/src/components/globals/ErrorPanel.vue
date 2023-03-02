@@ -1,15 +1,16 @@
 <template>
   <div class="px-1">
     <v-alert
+      v-bind="$attrs" 
+      v-on="$listeners"
       class="small mx-1"
       theme="dark"
-      v-model="showError"
       closable
       close-label="Close Alert"
       color="#C51162"
       elevation="2"
     >
-    <slot >
+    <slot>
       No slot content
     </slot>
     </v-alert>
@@ -18,13 +19,7 @@
 
 <script>
   export default {
-    props: ['showError'],
-  
-    data() {
-      return {
-        showError: false
-      }
-    }
+    props: ['showError']  
   }
 </script>
 <style scoped>

@@ -19,17 +19,11 @@
           color="white"
           title="Register"
         >
-          <v-alert
-            type="error"
-            v-model="showError"
-            border="start"
-            variant="tonal"
-            closable
-            close-label="Close Alert"
-            color="red"
-          >
-            {{error}}
-          </v-alert>
+          <error-panel v-model="showError">
+            <div class="text-justify text-caption">
+              {{ logError }}
+            </div>
+          </error-panel>
           <v-container>
             <v-form
               ref="form"
@@ -153,7 +147,7 @@ export default {
         v => v.length >= 8 || 'Password must not be less than 8 characters'
       ],
       showError: false,
-      error: null
+      logError: null
     }
   },
   methods: {
@@ -171,7 +165,7 @@ export default {
         })
       } catch (err) {
         this.showError = true
-        this.error = err.response.data.error
+        this.logError = err.response.data.error
       }
     }
   }
