@@ -27,15 +27,18 @@
               <h2>Login Here</h2>
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>
-            <v-alert
-              color="error"
-              icon="$error"
-              text="logError"
-              close-label="Close Alert"
-             
-            >
-              {{error}}
-            </v-alert>
+            <div class="px-1">
+              <v-alert
+                class="small mx-1"
+                theme="dark"
+                closable
+                close-label="Close Alert"
+                color="#C51162"
+                elevation="2"
+              >
+                <small>{{ logError }}</small>
+              </v-alert>
+            </div>
             <v-container>
               <v-form
                 ref="loginform"
