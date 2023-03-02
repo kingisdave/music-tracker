@@ -10,9 +10,11 @@
       color="#C51162"
       elevation="2"
     >
-    <slot>
-      No slot content
-    </slot>
+    <div class="text-justify text-caption">
+      <slot>
+        No slot content
+      </slot>
+    </div>
     </v-alert>
   </div>
 </template>

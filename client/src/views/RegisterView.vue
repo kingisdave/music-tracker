@@ -20,9 +20,7 @@
           title="Register"
         >
           <error-panel v-model="showError">
-            <div class="text-justify text-caption">
-              {{ logError }}
-            </div>
+            {{ logError }}
           </error-panel>
           <v-container>
             <v-form

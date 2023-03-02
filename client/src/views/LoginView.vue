@@ -28,7 +28,7 @@
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>
             <error-panel v-model="showError">
-              <small>{{ logError }}</small>
+              {{ logError }}
             </error-panel>
             <v-container>
               <v-form
