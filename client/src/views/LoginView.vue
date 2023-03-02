@@ -27,6 +27,9 @@
               <h2>Login Here</h2>
               <!-- <v-avatar icon="mdi-vuetify" size="54"></v-avatar> -->
             </div>
+            <!-- <error-panel :modelValue="showError">
+              <small>{{ logError }}</small>
+            </error-panel> -->
             <div class="px-1">
               <v-alert
                 class="small mx-1"

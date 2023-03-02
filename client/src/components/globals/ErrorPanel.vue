@@ -9,19 +9,24 @@
       color="#C51162"
       elevation="2"
     >
-      <small>{{ error }}</small>
+    <slot >
+      No slot content
+    </slot>
     </v-alert>
   </div>
 </template>
 
 <script>
-export default {
-  props: [
-    'title'
-  ]
-}
+  export default {
+    props: ['showError'],
+  
+    data() {
+      return {
+        showError: false
+      }
+    }
+  }
 </script>
-
 <style scoped>
 
 </style>

@@ -5,10 +5,12 @@ import store from './store'
 import vuetify from './plugins/vuetify'
 import { loadFonts } from './plugins/webfontloader'
 import PanelView from '@/components/globals/PanelView'
+import ErrorPanel from '@/components/globals/ErrorPanel'
 
 loadFonts()
 createApp(App)
   .component('panel-view', PanelView)
+  .component('error-panel', ErrorPanel)
   .use(router)
   .use(store)
   .use(vuetify)
