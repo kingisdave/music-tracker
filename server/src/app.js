@@ -17,7 +17,7 @@ require('./routes')(app)
 // .sync({force: true}) adding the force will clear the database
 sequelize.sync()
     .then(() => {
-        console.log(`Db is ready on port ${config.port}`)
+        console.log(`Db ready on port ${config.port}`)
     })
   
 app.listen(config.port)

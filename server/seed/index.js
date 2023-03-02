@@ -24,9 +24,9 @@ sequelize.sync({force: true})
       })
     )  
 
-    // await Promise.all(
-    //   bookmarks.map(bookmark => {
-    //     Bookmark.create(bookmark)
-    //   })
-    // )  
+    await Promise.all(
+      bookmarks.map(bookmark => {
+        Bookmark.create(bookmark)
+      })
+    )  
   })
