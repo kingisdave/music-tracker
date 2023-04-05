@@ -22,8 +22,8 @@ fs
   })
 
 Object.keys(models).forEach(function (modelName) {
+  console.log('DBDBD DBD: ',models[modelName])
   if ('associate' in models[modelName]) {
-    console.log('DBDBD DBD: ',models[modelName])
     models[modelName].associate(models)
   }
 })
