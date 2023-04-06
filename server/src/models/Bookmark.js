@@ -1,13 +1,13 @@
-module.exports = (sequelize) => {
+module.exports = (sequelize, DataTypes) => {
   const Bookmark = sequelize.define('Bookmark', {
-    // userId: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true
-    // },
-    // songId: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true
-    // }
+    UserId: {
+      type: DataTypes.STRING
+      // allowNull: true
+    },
+    SongId: {
+      type: DataTypes.STRING
+      // allowNull: true
+    }
   // },{
   //   associate: function (models) {
   //     Bookmark.belongsTo(models.User, {
@@ -42,10 +42,10 @@ module.exports = (sequelize) => {
   //     foreignKey: 'SongId'
   //   });
   // }
-  Bookmark.associate = function (models) {
-    Bookmark.belongsTo(models.User, {constraints: true});
-    Bookmark.belongsTo(models.Song, {constraints: true});
-  }
+  // Bookmark.associate = function (models) {
+  //   Bookmark.belongsTo(models.User, {constraints: true});
+  //   Bookmark.belongsTo(models.Song, {constraints: true});
+  // }
 
   return Bookmark;
 }
