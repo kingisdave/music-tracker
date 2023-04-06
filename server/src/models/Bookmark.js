@@ -8,6 +8,21 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     }
+  // },{
+  //   associate: function (models) {
+  //     Bookmark.belongsTo(models.User, {
+  //         as: 'User',
+  //         foreignKey: 'BookmarkId',
+  //         targetKey: 'id',
+  //         constraints: false
+  //     });
+  //     Bookmark.belongsTo(models.Song, {
+  //         as: 'Song',
+  //         foreignKey: 'BookmarkId',
+  //         targetKey: 'id',
+  //         constraints: false
+  //     });
+  //   }
   })
 
   Bookmark.associate = function ({User, Song}) {

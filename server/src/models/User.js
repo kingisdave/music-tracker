@@ -29,21 +29,18 @@ module.exports = (sequelize, DataTypes) => {
           user.password = await bcrypt.hash(user.password, salt);
         }
       }   
-    },{
-      associate: function (models) {
-        User.hasOne(models.Bookmark, {
-            as: 'Bookmark',
-            foreignKey: 'UserId',
-            targetKey: 'email',
-            contarints: false
-        });
-      }
+    },
+    
   });
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
-    
   };
-
+  
+  User.associate = (models) => {
+    User.hasOne(models.Bookmark, {
+      onDelete: "cascade",
+    });
+  };
   // User.associate = function (models) {
   //   User.hasOne(models.Bookmark, {
   //     foreignKey: 'UserId'
