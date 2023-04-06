@@ -1,29 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-  const Bookmark = sequelize.define('Bookmark', {
-    UserId: {
-      type: DataTypes.STRING
-      // allowNull: true
-    },
-    SongId: {
-      type: DataTypes.STRING
-      // allowNull: true
-    }
-  // },{
-  //   associate: function (models) {
-  //     Bookmark.belongsTo(models.User, {
-  //         as: 'User',
-  //         foreignKey: 'BookmarkId',
-  //         targetKey: 'id',
-  //         constraints: false
-  //     });
-  //     Bookmark.belongsTo(models.Song, {
-  //         as: 'Song',
-  //         foreignKey: 'BookmarkId',
-  //         targetKey: 'id',
-  //         constraints: false
-  //     });
-  //   }
-  })
+module.exports = (sequelize) => {
+  const Bookmark = sequelize.define('Bookmark', {})
   // Bookmark.associate = (models) => {
   //   Bookmark.belongsTo(models.User, {
   //     foreignKey: "userId",
@@ -42,10 +18,10 @@ module.exports = (sequelize, DataTypes) => {
   //     foreignKey: 'SongId'
   //   });
   // }
-  // Bookmark.associate = function (models) {
-  //   Bookmark.belongsTo(models.User, {constraints: true});
-  //   Bookmark.belongsTo(models.Song, {constraints: true});
-  // }
+  Bookmark.associate = function (models) {
+    Bookmark.belongsTo(models.User);
+    // Bookmark.belongsTo(models.Song);
+  }
 
   return Bookmark;
 }

@@ -2,6 +2,12 @@ const bcrypt = require('bcrypt')
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   autoIncrement: true,
+    //   allowNull: false,
+    //   primaryKey: true,
+    // },
     firstName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -31,23 +37,16 @@ module.exports = (sequelize, DataTypes) => {
       }   
     }   
   });
-  // User.associate = (models) => {
-  //   User.hasOne(models.Bookmark, {
-  //     onDelete: 'CASCADE',
-  //     constraints: true
-  //   });
-  // };
+  
+  User.associate = function (models) {
+    User.hasOne(models.Bookmark, {
+      onDelete: 'CASCADE'
+    });
+  }
 
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
   };
-  
-  User.associate = function (models) {
-    User.hasOne(models.Bookmark, {
-      onDelete: 'CASCADE',
-      constraints: true
-    });
-  }
 
   return User;
 }
