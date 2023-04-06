@@ -16,11 +16,16 @@ module.exports = (sequelize, DataTypes) => {
     tab: DataTypes.TEXT
   })
 
-  Song.associate = function (models) {
+  // Song.associate = function (models) {
+  //   Song.hasOne(models.Bookmark, {
+  //     foreignKey: 'SongId'
+  //   });
+  // }
+  Song.associate = (models) => {
     Song.hasOne(models.Bookmark, {
-      foreignKey: 'SongId'
+      onDelete: "cascade",
     });
-  }
+  };
 
   return Song;
 }

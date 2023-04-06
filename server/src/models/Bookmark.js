@@ -24,11 +24,14 @@ module.exports = (sequelize, DataTypes) => {
   //     });
   //   }
   })
-
-  Bookmark.associate = function ({User, Song}) {
-    Bookmark.belongsTo(User);
-    Bookmark.belongsTo(Song);
-  }
+  Bookmark.associate = (models) => {
+    Bookmark.belongsTo(models.User);
+    Bookmark.belongsTo(models.Song);
+  };
+  // Bookmark.associate = function ({User, Song}) {
+  //   Bookmark.belongsTo(User);
+  //   Bookmark.belongsTo(Song);
+  // }
 
   return Bookmark;
 }
