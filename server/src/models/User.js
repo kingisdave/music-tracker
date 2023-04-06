@@ -2,11 +2,11 @@ const bcrypt = require('bcrypt')
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    firstName:  {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lastName:  {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
   
   User.associate = (models) => {
     User.hasOne(models.Bookmark, {
-      onDelete: "cascade",
+      onDelete: "CASCADE"
     });
   };
   // User.associate = function (models) {

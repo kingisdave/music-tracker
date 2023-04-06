@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
   // }
   Song.associate = (models) => {
     Song.hasOne(models.Bookmark, {
-      onDelete: "cascade",
+      onDelete: "CASCADE"
     });
   };
 

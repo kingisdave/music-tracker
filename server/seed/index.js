@@ -6,8 +6,8 @@ const {
 } = require('../src/models')
 // const config = require('./config/config')
 const Promise = require('bluebird')
-const songs = require('./songs.json')
 const users = require('./users.json')
+const songs = require('./songs.json')
 const bookmarks = require('./bookmarks.json')
 
 sequelize.sync({force: true})
