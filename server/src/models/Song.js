@@ -14,16 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     youtubeId: DataTypes.STRING,
     lyrics: DataTypes.TEXT,
     tab: DataTypes.TEXT
-  })
+  });
 
   // Song.associate = function (models) {
   //   Song.hasOne(models.Bookmark, {
   //     foreignKey: 'SongId'
   //   });
   // }
-  Song.associate = (models) => {
+  Song.associate = function (models) {
     Song.hasOne(models.Bookmark, {
-      onDelete: "CASCADE"
+      onDelete: 'CASCADE',
+      constraints: true
     });
   };
 

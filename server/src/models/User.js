@@ -29,23 +29,25 @@ module.exports = (sequelize, DataTypes) => {
           user.password = await bcrypt.hash(user.password, salt);
         }
       }   
-    },
-    
+    }   
   });
+  // User.associate = (models) => {
+  //   User.hasOne(models.Bookmark, {
+  //     onDelete: 'CASCADE',
+  //     constraints: true
+  //   });
+  // };
+
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
   };
   
-  User.associate = (models) => {
+  User.associate = function (models) {
     User.hasOne(models.Bookmark, {
-      onDelete: "CASCADE"
+      onDelete: 'CASCADE',
+      constraints: true
     });
-  };
-  // User.associate = function (models) {
-  //   User.hasOne(models.Bookmark, {
-  //     foreignKey: 'UserId'
-  //   });
-  // }
+  }
 
   return User;
 }

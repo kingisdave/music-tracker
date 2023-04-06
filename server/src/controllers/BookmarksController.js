@@ -8,7 +8,7 @@ module.exports = {
       const {songId} = req.query
       const bookmark = await Bookmark.findOne({
         where: {
-          SongId: songId
+          songId: songId
         }
       })
       res.send(bookmark)
