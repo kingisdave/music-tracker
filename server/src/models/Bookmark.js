@@ -19,8 +19,8 @@ module.exports = (sequelize) => {
   //   });
   // }
   Bookmark.associate = function (models) {
-    Bookmark.belongsTo(models.User);
-    // Bookmark.belongsTo(models.Song);
+    // Bookmark.belongsTo(models.User);
+    Bookmark.belongsTo(models.Song);
   }
 
   return Bookmark;
