@@ -21,7 +21,6 @@ sequelize.sync({force: true})
       songs.map(song => {
         Song.create(song)
       })
-
     )  
 
     await Promise.all(
@@ -30,3 +29,4 @@ sequelize.sync({force: true})
       })
     )  
   })
+  

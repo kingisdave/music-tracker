@@ -37,16 +37,16 @@ module.exports = (sequelize, DataTypes) => {
       }   
     }   
   });
+ 
+  User.prototype.validPassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+  };
   
   User.associate = function (models) {
     User.hasOne(models.Bookmark, {
       onDelete: 'CASCADE'
     });
   }
-
-  User.prototype.validPassword = async function (password) {
-    return await bcrypt.compare(password, this.password);
-  };
 
   return User;
 }

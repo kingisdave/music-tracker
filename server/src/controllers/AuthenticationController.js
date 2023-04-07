@@ -29,12 +29,6 @@ module.exports = {
             email: email
           }
         })
-        // if (!user) {
-        //     // res.redirect('/login');
-        //     return res.status(401).json({
-        //       error: 'The login information was incorrect'
-        //     })
-        // }
         // const isPasswordValid = await user.validPassword(password)
         // if(!isPasswordValid) {
         //   return res.status(401).json({
@@ -45,8 +39,7 @@ module.exports = {
         // return res.status(200).json({
         //   user: userJson,
         //   token: jwtSignUser(userJson)
-        // });
-        
+        // }); 
       .then(async function (user) {
         if (!user) {
           // res.redirect('/login')
