@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
   // };
   Bookmark.associate = function (models) {
     Bookmark.belongsTo(models.Song);
-    // Bookmark.belongsTo(models.User);
+    Bookmark.belongsTo(models.Admin);
   }
 
   return Bookmark;
