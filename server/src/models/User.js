@@ -42,11 +42,11 @@ module.exports = (sequelize, DataTypes) => {
     return await bcrypt.compare(password, this.password);
   };
   
-  User.associate = function (models) {
-    User.hasOne(models.Bookmark, {
-      onDelete: 'CASCADE'
-    });
-  }
-
+  // User.associate = function (models) {
+  //   User.hasOne(models.Bookmark, {
+  //     onDelete: 'CASCADE'
+  //   });
+  // }
+  
   return User;
 }

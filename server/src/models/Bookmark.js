@@ -10,17 +10,9 @@ module.exports = (sequelize) => {
   //     as: "song"
   //   });
   // };
-  // Bookmark.associate = ({User, Song}) => {
-  //   Bookmark.belongsTo(User, {
-  //     foreignKey: 'UserId'
-  //   });
-  //   Bookmark.belongsTo(Song, {
-  //     foreignKey: 'SongId'
-  //   });
-  // }
   Bookmark.associate = function (models) {
-    // Bookmark.belongsTo(models.User);
     Bookmark.belongsTo(models.Song);
+    // Bookmark.belongsTo(models.User);
   }
 
   return Bookmark;
