@@ -1,13 +1,13 @@
 const { 
   sequelize,
   User,
-  Admin,
+  // Admin,
   Song,
   Bookmark
 } = require('../src/models')
 const Promise = require('bluebird')
 const users = require('./users.json')
-const admins = require('./admins.json')
+// const admins = require('./admins.json')
 const songs = require('./songs.json')
 const bookmarks = require('./bookmarks.json')
 
@@ -19,11 +19,11 @@ sequelize.sync({force: true})
       })
     )  
 
-    await Promise.all(
-      admins.map(admin => {
-        Admin.create(admin)
-      })
-    )  
+    // await Promise.all(
+    //   admins.map(admin => {
+    //     Admin.create(admin)
+    //   })
+    // )  
     
     await Promise.all(
       songs.map(song => {
