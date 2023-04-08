@@ -1,19 +1,9 @@
 module.exports = (sequelize) => {
   const Bookmark = sequelize.define('Bookmark', {})
-  // Bookmark.associate = (models) => {
-  //   Bookmark.belongsTo(models.User, {
-  //     foreignKey: "userId",
-  //     as: "user",
-  //   });
-  //   Bookmark.belongsTo(models.Song, {
-  //     foreignKey: "songId",
-  //     as: "song"
-  //   });
-  // };
+  
   Bookmark.associate = function (models) {
     Bookmark.belongsTo(models.Song);
     Bookmark.belongsTo(models.User);
-    // Bookmark.belongsTo(models.Admin);
   }
 
   return Bookmark;
