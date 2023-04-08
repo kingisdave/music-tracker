@@ -16,6 +16,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING
   },{
+    associate: function (models) {
+      User.hasOne(models.Bookmark, {
+        onDelete: 'CASCADE'
+      });
+    }
+  },{
     hooks: {
       beforeCreate: async (user) => {
         if (user.password) {
@@ -35,12 +41,6 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
   };
-  
-  // User.associate = function (models) {
-  //   User.hasOne(models.Bookmark, {
-  //     onDelete: 'CASCADE'
-  //   });
-  // }
   
   return User;
 }

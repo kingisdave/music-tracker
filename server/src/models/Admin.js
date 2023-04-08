@@ -31,11 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
   })
 
-  Admin.associate = function (models) {
-    Admin.hasOne(models.Bookmark, {
-      onDelete: 'CASCADE'
-    });
-  }
+  // Admin.associate = function (models) {
+  //   Admin.hasOne(models.Bookmark, {
+  //     onDelete: 'CASCADE'
+  //   });
+  // }
 
   return Admin
 }

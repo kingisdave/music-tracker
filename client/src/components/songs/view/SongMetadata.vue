@@ -89,7 +89,7 @@ export default {
   async mounted () {
     const bookmark = (await BookmarkService.index({
       songId: 1,
-      userId: 3,
+      userId: 1,
       bookmarkType: 'song'
     })).data
     this.isBookmarked = !!bookmark
