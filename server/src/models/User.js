@@ -15,34 +15,44 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
     password: DataTypes.STRING
-  // },{
+  },{
   //   associate: function (models) {
   //     User.hasOne(models.Bookmark, {
   //       onDelete: 'CASCADE',
   //       hooks: true
   //     });
   //   }
+//   , {
+    freezeTableName: true,
+    instanceMethods: {
+        generateHash(password) {
+            // return bcrypt.hash(password, bcrypt.genSaltSync(8));
+            bcrypt.hash(password, 10, function(err, hash) {
+              User.password = hash;  // Store hash in your password DB.
+          });
+        },
+        validPassword(password) {
+            return bcrypt.compare(password, this.password);
+            bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
+              // result == true
+          });
+        }
+    }
   },{
-    hooks: {
-      beforeCreate: async (user) => {
-        if (user.password) {
-          const salt = await bcrypt.genSalt(10);
-          user.password = await bcrypt.hash(user.password, salt);
-        }
-      // },
-      // afterCreate: (bookmark, options) => {
-      //   console.log(`\n\n\n ${options} After update model \n\n\n, ${bookmark}`);
-      },
-      beforeUpdate:async (user) => {
-        if (user.password) {
-          const salt = await bcrypt.genSalt(10);
-          user.password = await bcrypt.hash(user.password, salt);
-        }
-      },
-      afterBulkCreate: (bookmark, options) => {
-        console.log(`\n\n\n ${options} After update model \n\n\n, ${bookmark}`);
-      }   
-    }   
+    // hooks: {
+    //   beforeCreate: async (user) => {
+    //     if (user.password) {
+    //       const salt = await bcrypt.genSalt(10);
+    //       user.password = await bcrypt.hash(user.password, salt);
+    //     }
+    //   },
+    //   beforeUpdate:async (user) => {
+    //     if (user.password) {
+    //       const salt = await bcrypt.genSalt(10);
+    //       user.password = await bcrypt.hash(user.password, salt);
+    //     }
+    //   }
+    // }   
   });
  
   User.prototype.validPassword = async function (password) {
