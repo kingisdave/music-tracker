@@ -73,12 +73,12 @@ module.exports = (sequelize, DataTypes) => {
   //   }
   // });
   // Method 2 via the .addHook() method
-  User.addHook('beforeCreate','beforeUpdate', async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(user.password, salt);
-    }
-  });
+  // User.addHook('beforeCreate','beforeUpdate', async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
   // User.addHook('beforeUpdate', async (user) => {
   //   if (user.password) {
   //     const salt = await bcrypt.genSalt(10);
@@ -86,18 +86,18 @@ module.exports = (sequelize, DataTypes) => {
   //   }
   // });
   // Method 3 via the direct method
-  // User.beforeCreate(async (user) => {
-  //   if (user.password) {
-  //     const salt = await bcrypt.genSalt(10);
-  //     user.password = await bcrypt.hash(user.password, salt);
-  //   }
-  // });
-  // User.beforeUpdate(async (user) => {
-  //   if (user.password) {
-  //     const salt = await bcrypt.genSalt(10);
-  //     user.password = await bcrypt.hash(user.password, salt);
-  //   }
-  // });
+  User.beforeCreate(async (user) => {
+    if (user.password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+    }
+  });
+  User.beforeUpdate(async (user) => {
+    if (user.password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+    }
+  });
  
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
