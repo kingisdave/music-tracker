@@ -42,22 +42,22 @@ module.exports = (sequelize, DataTypes) => {
           onDelete: 'CASCADE',
           hooks: true
         });
+      },
+    // }
+    hooks: {
+      beforeCreate: async (user) => {
+        if (user.password) {
+          const salt = await bcrypt.genSalt(10);
+          user.password = await bcrypt.hash(user.password, salt);
+        }
+      },
+      beforeUpdate:async (user) => {
+        if (user.password) {
+          const salt = await bcrypt.genSalt(10);
+          user.password = await bcrypt.hash(user.password, salt);
+        }
       }
-    // }
-    // hooks: {
-    //   beforeCreate: async (user) => {
-    //     if (user.password) {
-    //       const salt = await bcrypt.genSalt(10);
-    //       user.password = await bcrypt.hash(user.password, salt);
-    //     }
-    //   },
-    //   beforeUpdate:async (user) => {
-    //     if (user.password) {
-    //       const salt = await bcrypt.genSalt(10);
-    //       user.password = await bcrypt.hash(user.password, salt);
-    //     }
-    //   }
-    // }
+    }
     
   });
   // User.beforeCreate(async (user) => {
@@ -86,18 +86,18 @@ module.exports = (sequelize, DataTypes) => {
   //   }
   // });
   // Method 3 via the direct method
-  User.beforeCreate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(user.password, salt);
-    }
-  });
-  User.beforeUpdate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSalt(10);
-      user.password = await bcrypt.hash(user.password, salt);
-    }
-  });
+  // User.beforeCreate(async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
+  // User.beforeUpdate(async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
  
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
