@@ -16,15 +16,27 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: DataTypes.STRING
   // },{
-    // associate: function (models) {
-    //   User.hasOne(models.Bookmark, {
-    //     onDelete: 'CASCADE',
-    //     hooks: true
-    //   });
-    // }
+  //   associate: function (models) {
+  //     User.hasOne(models.Bookmark, {
+  //       onDelete: 'CASCADE',
+  //       hooks: true
+  //     });
+  //   }
 //  
   // },{
-    // instanceMethods: {
+  //   instanceMethods: {
+      // beforeCreate: async (user) => {
+      //   if (user.password) {
+      //     const salt = await bcrypt.genSalt(10);
+      //     user.password = await bcrypt.hash(user.password, salt);
+      //   }
+      // },
+      // beforeUpdate: async (user) => {
+      //   if (user.password) {
+      //     const salt = await bcrypt.genSalt(10);
+      //     user.password = await bcrypt.hash(user.password, salt);
+      //   }
+      // },
     //   associate: function (models) {
     //     User.hasOne(models.Bookmark, {
     //       onDelete: 'CASCADE',
@@ -49,6 +61,12 @@ module.exports = (sequelize, DataTypes) => {
     
   });
   User.beforeCreate(async (user) => {
+    if (user.password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+    }
+  });
+  User.beforeUpdate(async (user) => {
     if (user.password) {
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(user.password, salt);
