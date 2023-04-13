@@ -15,30 +15,23 @@ module.exports = (sequelize, DataTypes) => {
       unique: true
     },
     password: DataTypes.STRING
-  },{
-  //   associate: function (models) {
-  //     User.hasOne(models.Bookmark, {
-  //       onDelete: 'CASCADE',
-  //       hooks: true
-  //     });
-  //   }
-//   , {
-    freezeTableName: true,
-    instanceMethods: {
-        generateHash(password) {
-            // return bcrypt.hash(password, bcrypt.genSaltSync(8));
-            bcrypt.hash(password, 10, function(err, hash) {
-              User.password = hash;  // Store hash in your password DB.
-          });
-        },
-        validPassword(password) {
-            return bcrypt.compare(password, this.password);
-            bcrypt.compare(myPlaintextPassword, hash, function(err, result) {
-              // result == true
-          });
-        }
-    }
-  },{
+  // },{
+    // associate: function (models) {
+    //   User.hasOne(models.Bookmark, {
+    //     onDelete: 'CASCADE',
+    //     hooks: true
+    //   });
+    // }
+//  
+  // },{
+    // instanceMethods: {
+    //   associate: function (models) {
+    //     User.hasOne(models.Bookmark, {
+    //       onDelete: 'CASCADE',
+    //       hooks: true
+    //     });
+    //   }
+    // }
     // hooks: {
     //   beforeCreate: async (user) => {
     //     if (user.password) {
@@ -52,15 +45,47 @@ module.exports = (sequelize, DataTypes) => {
     //       user.password = await bcrypt.hash(user.password, salt);
     //     }
     //   }
-    // }   
+    // }
+    
   });
+  User.beforeCreate(async (user) => {
+    if (user.password) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+    }
+  });
+  // Method 2 via the .addHook() method
+  // User.addHook('beforeCreate', async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
+  // User.addHook('beforeUpdate', async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
+  // Method 3 via the direct method
+  // User.beforeCreate(async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
+  // User.beforeUpdate(async (user) => {
+  //   if (user.password) {
+  //     const salt = await bcrypt.genSalt(10);
+  //     user.password = await bcrypt.hash(user.password, salt);
+  //   }
+  // });
  
   User.prototype.validPassword = async function (password) {
     return await bcrypt.compare(password, this.password);
   };
   // User.associate = function (models) {
   //   User.hasOne(models.Bookmark, {
-  //     through: Bookmark,
   //     onDelete: 'CASCADE',
   //     hooks: true
   //   });
