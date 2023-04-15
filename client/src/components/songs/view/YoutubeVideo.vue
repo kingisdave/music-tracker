@@ -1,6 +1,7 @@
 <template>
   <div>
     <panel-view
+      :elevation="2"
       title="Youtube Video">
       <iframe id="iframe-youtube"
         width="100%" height="350"

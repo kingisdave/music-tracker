@@ -2,7 +2,7 @@
   <v-container class="">
     <v-row no-gutters>
       <v-col cols="12">
-        <v-toolbar :elevation="3" flat dense dark color="primary" >
+        <v-toolbar flat dense dark color="primary">
           <v-toolbar-title>{{title}}</v-toolbar-title>
           <slot name="action"></slot>
         </v-toolbar>
