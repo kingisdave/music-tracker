@@ -49,7 +49,7 @@
             theme="dark"
             size="large"
             @click="addBookmark"
-            color="primary"
+            color="secondary"
           >
             Bookmark
           </v-btn>
@@ -87,20 +87,38 @@ export default {
     ])
   },
   async mounted () {
-    const bookmark = (await BookmarkService.index({
-      songId: 1,
-      userId: 1,
-      bookmarkType: 'song'
-    })).data
-    this.isBookmarked = !!bookmark
-    console.log('bookmark ', this.isBookmarked)
+    try {
+      const bookmark = (await BookmarkService.index({
+        userId: this.song.id,
+        songId: this.$store.state.user.id,
+        bookmarkType: 'song'
+      })).data
+      this.isBookmarked = !!bookmark
+      console.log('bookmark ', this.isBookmarked)
+    } catch (error) {
+      console.log(error)
+    }
   },
   methods: {
-    addBookmark () {
-      console.log('bookmark')
+    async addBookmark () {
+      try {
+        await BookmarkService.post({
+          userId: this.song.id,
+          songId: this.$store.state.user.id,
+        });        
+      } catch (error) {
+        console.log(error)
+      }
     },
-    unBookmark () {
-      console.log('unbookmark')
+    async unBookmark () {
+      try {
+        await BookmarkService.delete({
+          userId: this.song.id,
+          songId: this.$store.state.user.id,
+        });        
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
