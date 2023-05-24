@@ -1,7 +1,11 @@
 import { createStore } from 'vuex'
+// import createPersistedState from 'vuex-persistedstate';
 
 const store = createStore({
   strict: true,
+  // plugins: [
+  //   createPersistedState()
+  // ],
   state: {
     token: null,
     user: null,
