@@ -8,17 +8,37 @@
     >
       <v-row class="h-100 align-center">
         <v-col md="8" sm="8" xs="12"
-          class="px-10 text-white">
-          <v-card-text>
-            <div class="text-h6 text-sm-h4 mx-0 mx-sm-10 my-1 my-sm-3 text-start">
-              <h1 class="">Relieve Your Stress</h1>
-              <div class="my-2">With</div>
-              <h1 class="text-h2 font-weight-bold italics">Ease</h1>
+          class="px-4 px-sm-10 text-white">
+          <v-card-text class=" mx-0 mx-sm-10">
+            <div class="text-h6 text-sm-h4 my-1 my-sm-3 text-start">
+              <h1 class="text-h4 text-md-h3 font-weight-bold">
+                Relieve Your Stress
+              </h1>
+              <div class="my-2 ml-4 ml-sm-0">With</div>
+              <h1 class="text-h2 font-weight-bold font-italic">Ease</h1>
             </div>
-            <div class="mx-10" >
+            <v-row class="my-3">
               <div>Whitehaven Beach</div>
               <div>Whitsunday Island, Whitsunday Islands</div>
-            </div>
+            </v-row>
+            <v-row justify="center">
+              <v-btn 
+                xs="6" 
+                class="ma-1" 
+                rounded="xs" 
+                variant="outlined"
+              >
+                Start Now
+              </v-btn>
+              <v-btn 
+                xs="6"
+                class="ma-1"
+                rounded="xs" 
+                variant="outlined"
+              >
+                Login
+              </v-btn>
+            </v-row>
           </v-card-text>
         </v-col>
         <v-col md="4" class="d-none d-sm-block">
