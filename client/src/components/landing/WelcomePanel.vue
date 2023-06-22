@@ -26,19 +26,29 @@
                 <v-btn block 
                   rounded="lg" 
                   size="large"
-                  variant="outlined"
+                  color="#4500e6"
+                  variant="flat"
                 >
                   Start Now
                 </v-btn>
               </v-col>
               <v-col cols="5" sm="4" md="3">
                 <v-btn block 
-                  rounded="lg" 
+                  rounded="lg"
+                  color="#752471" 
                   size="large"
-                  variant="outlined"
+                  variant="flat"
                 >
                   Login
                 </v-btn>
+                <!-- <v-btn block 
+                  rounded="lg"
+                  color="#e19dde" 
+                  size="large"
+                  variant="flat"
+                >
+                  Login
+                </v-btn> -->
               </v-col>
               <!-- <v-btn 
                 size="large"
