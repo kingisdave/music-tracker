@@ -6,7 +6,7 @@
       :src="require('../../assets/images/Music Education Training Concert Background.jpg')"
       cover
     >
-      <v-row class="h-100 align-center">
+      <v-row class="align-center">
         <v-col md="8" sm="8" xs="12"
           class="px-4 px-sm-10 text-white">
           <v-card-text class=" mx-0 mx-sm-10">
@@ -17,7 +17,7 @@
               <div class="my-2 ml-4 ml-sm-0">With</div>
               <h1 class="text-h2 font-weight-bold font-italic">Ease</h1>
             </div>
-            <v-row class="my-3">
+            <v-row class="px-4 my-5 flex">
               <div>Whitehaven Beach</div>
               <div>Whitsunday Island, Whitsunday Islands</div>
             </v-row>
@@ -35,37 +35,14 @@
               <v-col cols="5" sm="4" md="3">
                 <v-btn block 
                   rounded="lg"
-                  color="#752471" 
+                  color="#b036a9" 
                   size="large"
                   variant="flat"
                 >
                   Login
                 </v-btn>
-                <!-- <v-btn block 
-                  rounded="lg"
-                  color="#e19dde" 
-                  size="large"
-                  variant="flat"
-                >
-                  Login
-                </v-btn> -->
+
               </v-col>
-              <!-- <v-btn 
-                size="large"
-                class="ma-1 ma-sm-3" 
-                rounded="xs" 
-                variant="outlined"
-              >
-                Start Now
-              </v-btn>
-              <v-btn 
-                size="large"
-                class="ma-1 ma-sm-3"
-                rounded="xs" 
-                variant="outlined"
-              >
-                Login
-              </v-btn> -->
             </v-row>
           </v-card-text>
         </v-col>
