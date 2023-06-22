@@ -1,20 +1,42 @@
 <template>
-  <v-card class="primary">
-    <v-row>
+  <v-card class="primary pt-5"
+    align="center"
+    style="min-height:90vh;">
+    <!-- <v-row
+      align="center"
+      style="min-height:90vh;">
       <v-col
         md="8" xs="10"
         class="mx-auto"
+      > -->
+    <v-carousel 
+      :continuous="false"
+      :show-arrows="false"
+      hide-delimiter-background>
+      <v-carousel-item
+        v-for="(slide,i) in slides"
+        :key="i"
       >
-        <v-carousel :show-arrows="false">
-          <v-carousel-item
-            v-for="(item,i) in items"
-            :key="i"
-            :src="item.src"
-            cover
-          ></v-carousel-item>
-        </v-carousel>
-      </v-col>
-    </v-row>
+      <v-sheet tile
+        width="70%"
+        height="85%"
+        theme="dark"
+        class="mx-auto"
+        style="background-color: #F5F6F7"
+      >
+        <v-row>
+          <v-col xs="12" sm="6">
+            
+          </v-col>
+          <v-col class="d-none d-sm-block">
+            
+          </v-col>
+        </v-row>
+      </v-sheet>
+      </v-carousel-item>
+    </v-carousel>
+      <!-- </v-col>
+    </v-row> -->
   </v-card>
 </template>
 
@@ -22,19 +44,19 @@
 export default {
   data () {
     return {
-      items: [
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
-        },
-        {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
-        },
+      colors: [
+        'green',
+        'secondary',
+        'yellow darken-4',
+        'red lighten-2',
+        'orange darken-1',
+      ],
+      slides: [
+        'First',
+        'Second',
+        'Third',
+        'Fourth',
+        'Fifth',
       ],
     }
   }
