@@ -21,23 +21,41 @@
               <div>Whitehaven Beach</div>
               <div>Whitsunday Island, Whitsunday Islands</div>
             </v-row>
-            <v-row justify="center">
-              <v-btn 
-                xs="6" 
-                class="ma-1" 
+            <v-row class="flex justify-center justify-sm-start mt-4">
+              <v-col cols="7" sm="6" md="5">
+                <v-btn block 
+                  rounded="lg" 
+                  size="large"
+                  variant="outlined"
+                >
+                  Start Now
+                </v-btn>
+              </v-col>
+              <v-col cols="5" sm="4" md="3">
+                <v-btn block 
+                  rounded="lg" 
+                  size="large"
+                  variant="outlined"
+                >
+                  Login
+                </v-btn>
+              </v-col>
+              <!-- <v-btn 
+                size="large"
+                class="ma-1 ma-sm-3" 
                 rounded="xs" 
                 variant="outlined"
               >
                 Start Now
               </v-btn>
               <v-btn 
-                xs="6"
-                class="ma-1"
+                size="large"
+                class="ma-1 ma-sm-3"
                 rounded="xs" 
                 variant="outlined"
               >
                 Login
-              </v-btn>
+              </v-btn> -->
             </v-row>
           </v-card-text>
         </v-col>
