@@ -23,23 +23,35 @@
         class="mt-3"
         style="background-color: #F5F6F7"
       >
-        <v-row align="center" 
-          class="d-none d-sm-flex ma-0" 
+        <v-row align="top" align-sm="center" 
+          class=" ma-0" 
           style="height: 100%;">
-          <v-col cols="12" sm="6" 
+          <v-col cols="12" sm="6"
+            class="d-none d-sm-inline" 
             style="padding: 0; width: 100%; height: 100%;">
             <v-img
-              class="text-white border-2"
+              class="text-white"
               height="200"
               :src="require('../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
               cover
-              style="height: 100%;width: 100%"
+              style="width: 100%; height: 100%"
+            />
+          </v-col>
+          <v-col cols="12" sm="6"
+            class="d-inline d-sm-none" 
+            style="padding: 0; width: 100%; height: 50%;">
+            <v-img
+              class="text-white"
+              height="300"
+              :src="require('../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
+              cover
+              style="width: 100%; height: 100%;"
             />
           </v-col>
           <v-col cols="12" sm="6">
               <v-card-text
-                style="color: #2a0a74; border: 3px solid #8c4ed2;">
-                <p class="text-subtitle-2 text-md-h6">
+                style="color: #2a0a74;">
+                <p class="text-body-2 text-md-h6">
                   Lorem ipsum dolor sit amet, consectetur adipisicing
                   elit. Magni ut est qui harum nam modi adipisci
                   soluta hic! Nam vero ipsa possimus nisi quibusdam
@@ -48,7 +60,7 @@
               </v-card-text>
           </v-col>
         </v-row>
-        <v-row align="center" 
+        <!-- <v-row align="center" 
           class="d-flex d-sm-none ma-0" 
           style="height: 100%;">
           <v-col cols="12" sm="6" 
@@ -72,7 +84,7 @@
                 </p>
               </v-card-text>
           </v-col>
-        </v-row>
+        </v-row> -->
       </v-sheet>
       </v-carousel-item>
     </v-carousel>
