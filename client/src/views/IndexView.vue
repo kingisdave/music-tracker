@@ -2,7 +2,7 @@
   <v-card class="ml-0 pa-0">
     <welcome-panel/>
 
-    <carousel-panel/>
+    <feature-panel/>
 
     <logo-panel/>
 
@@ -13,7 +13,7 @@
 
 <script>
 import WelcomePanel from '@/components/landing/WelcomePanel.vue'
-import CarouselPanel from '@/components/CarouselPanel.vue'
+import FeaturePanel from '@/components/landing/FeaturePanel.vue'
 import LogoPanel from '@/components/landing/LogoPanel.vue'
 import AboutPanel from '@/components/landing/AboutPanel.vue'
 
@@ -21,7 +21,7 @@ export default {
   name: 'IndexView',
   components: {
     WelcomePanel,
-    CarouselPanel,
+    FeaturePanel,
     LogoPanel,
     AboutPanel
   },

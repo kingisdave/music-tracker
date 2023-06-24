@@ -2,13 +2,11 @@
   <v-card class="primary pt-5"
     align="center"
     style="min-height:70vh;">
-    <!-- <v-row
-      align="center"
-      style="min-height:90vh;">
-      <v-col
-        md="8" xs="10"
-        class="mx-auto"
-      > -->
+    <div class="d-block text-center pt-5 pb-4">
+      <h1 class="text-sm-h3 font-weight-medium">
+        Features & Services
+      </h1>
+    </div>
     <v-carousel 
       :continuous="false"
       :show-arrows="false"
@@ -43,7 +41,7 @@
               <v-img
                 class="text-white"
                 height="300"
-                :src="require('../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
+                :src="require('../../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
                 cover
                 style="width: 100%; height: 100%;"
               />
@@ -64,7 +62,7 @@
       </v-carousel-item>
     </v-carousel>
   </v-card>
-</templatd
+</template>
 <script>
 export default {
   data () {
@@ -78,16 +76,16 @@ export default {
       ],
       slides: [
         {
-          src: require('../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg'),
+          src: require('../../assets/images/cool-mic.jpg'),
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          src: require('../../assets/images/human-book.png'),
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          src: require('../../assets/images/money-pizza.png'),
         },
         {
-          src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+          src: require('../../assets/images/tree-house.jpg'),
         },
       ],
     }
