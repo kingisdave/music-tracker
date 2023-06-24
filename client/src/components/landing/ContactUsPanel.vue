@@ -4,7 +4,7 @@
     style="min-height:70vh;">
     <div class="d-block text-center pt-4 pb-3">
       <h1 class="text-sm-h4 font-weight-bold">
-        Features & Services
+        Contact Us
       </h1>
     </div>
     

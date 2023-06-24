@@ -3,8 +3,12 @@
     <welcome-panel/>
 
     <feature-panel/>
-
+    
+    <our-team-panel/>
+    
     <logo-panel/>
+    
+    <contact-us-panel/>
 
     <about-panel/>
 
@@ -14,7 +18,9 @@
 <script>
 import WelcomePanel from '@/components/landing/WelcomePanel.vue'
 import FeaturePanel from '@/components/landing/FeaturePanel.vue'
+import OurTeamPanel from '@/components/landing/OurTeamPanel.vue'
 import LogoPanel from '@/components/landing/LogoPanel.vue'
+import ContactUsPanel from '@/components/landing/ContactUsPanel.vue'
 import AboutPanel from '@/components/landing/AboutPanel.vue'
 
 export default {
@@ -22,6 +28,8 @@ export default {
   components: {
     WelcomePanel,
     FeaturePanel,
+    OurTeamPanel,
+    ContactUsPanel,
     LogoPanel,
     AboutPanel
   },

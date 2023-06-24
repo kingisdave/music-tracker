@@ -6,6 +6,9 @@
       <h1 class="text-sm-h3 font-weight-medium">
         Features & Services
       </h1>
+      <h3 class="text-subtitle2 text-sm-subtitle mt-3">
+        Check out on each of the features and our services
+      </h3>
     </div>
     <v-carousel 
       :continuous="false"
