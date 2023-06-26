@@ -20,30 +20,23 @@
           :key="`group-${n}`"
           :value="n"
         >
-        <v-row class="">
-          <v-col cols="6" sm="4" md="3"
-            class="bg-white"
-            v-for="x in 4"
-            :key="`team-${(n-1) * 4 + x}`"
-          >
-            <v-card
-              height="200"
-              class="d-flex justify-center align-center"
+          <v-row class="">
+            <v-col cols="6" sm="4" md="3"
+              class="bg-white"
+              v-for="x in 4"
+              :key="`team-${(n-1) * 4 + x}`"
             >
-              <span class="text-h2">
-                Card {{ (n - 1) * 4 + x }}
-              </span>
-            </v-card>
-          </v-col>
-        </v-row>
-          <!-- <v-card
-            height="200"
-            class="d-flex justify-center align-center"
-          >
-            <span class="text-h2">
-              Card {{ n }}
-            </span>
-          </v-card> -->
+              <v-card
+                height="200"
+                class="d-flex justify-center align-center"
+              >
+                <span class="text-h2">
+                  Card {{ (n - 1) * 4 + x }}
+                </span>
+              </v-card>
+            </v-col>
+          </v-row>
+        
         </v-window-item>
       </v-window>
 
