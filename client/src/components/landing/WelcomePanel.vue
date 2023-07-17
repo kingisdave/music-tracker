@@ -15,34 +15,36 @@
                 Relieve Your Stress
               </h1>
               <div class="my-2 ml-4 ml-sm-0">With</div>
-              <h1 class="text-h2 font-weight-bold font-italic">Ease</h1>
+              <h1 class="text-h2 font-weight-bold font-italic">
+                Premium
+              </h1>
             </div>
-            <v-row class="px-4 my-5 flex">
+            <v-row class="px-4 my-6 flex">
               <div>Whitehaven Beach</div>
               <div>Whitsunday Island, Whitsunday Islands</div>
             </v-row>
-            <v-row class="flex justify-center justify-sm-start mt-4">
+            <v-row class="flex justify-center justify-sm-start mt-6">
               <v-col cols="7" sm="6" md="5">
                 <v-btn block 
                   rounded="lg" 
                   size="large"
-                  color="#4500e6"
+                  color="#b036a9"
                   variant="flat"
                 >
                   Start Now
                 </v-btn>
               </v-col>
-              <v-col cols="5" sm="4" md="3">
+              <!-- <v-col cols="5" sm="4" md="3">
                 <v-btn block 
                   rounded="lg"
-                  color="#b036a9" 
+                  color="#4500e6" 
                   size="large"
                   variant="flat"
                 >
                   Login
                 </v-btn>
 
-              </v-col>
+              </v-col> -->
             </v-row>
           </v-card-text>
         </v-col>
