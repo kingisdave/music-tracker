@@ -24,61 +24,80 @@
           <v-row class="d-flex justify-center">
             <v-col cols="12" sm="4" md="3"
               class="d-none d-md-inline"
-              v-for="team in teams"
-              :key="team.title"
+              v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
+              :key="index"
             >
-              <v-card
-                height="400"
+            <team-card :team="team" />
+              <!-- <v-card height="400"
                 class="d-flex bg-white justify-center align-center"
               >
-              <v-img
-                :src="team.picture.large"
-                :lazy-src="team.picture.thumbnail"
-                class="align-end"
-                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                height="100%"
-                cover
-              >
-                <v-card-title class="text-white" >
-                  {{ team.name.first + ' ' + team.name.last }}
-                </v-card-title>
-                <v-card-text class="text-white">
-                  Team Member
-                </v-card-text>
-              </v-img>
-                <!-- <span class="text-h2">
-                  Card {{ (n - 1) * length + x }}
-                </span> -->
-              </v-card>
+                <v-img
+                  :src="team.picture.large"
+                  :lazy-src="team.picture.thumbnail"
+                  class="align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="100%"
+                  cover
+                >
+                  <v-card-title class="text-white" >
+                    {{ team.name.first + ' ' + team.name.last }}
+                  </v-card-title>
+                  <v-card-text class="text-white">
+                    Team Member
+                  </v-card-text>
+                </v-img>
+              </v-card> -->
             </v-col>
-            <!-- <v-col cols="6" sm="6" md="4"
+            <v-col cols="6" sm="6" md="4"
               class="d-none d-sm-inline d-md-none"
-              v-for="x in 2"
-              :key="`team-${(n-1) * 2 + x}`"
+              v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
+              :key="index"
             >
-              <v-card
-                height="400"
+              <!-- <v-card height="400"
                 class="d-flex bg-white justify-center align-center"
               >
-                <span class="text-h2">
-                  Card {{ (n - 1) * 2 + x }}
-                </span>
-              </v-card>
+                <v-img
+                  :src="team.picture.large"
+                  :lazy-src="team.picture.thumbnail"
+                  class="align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="100%"
+                  cover
+                >
+                  <v-card-title class="text-white" >
+                    {{ team.name.first + ' ' + team.name.last }}
+                  </v-card-title>
+                  <v-card-text class="text-white">
+                    Team Member
+                  </v-card-text>
+                </v-img>
+              </v-card> -->
             </v-col>
             <v-col cols="12" sm="4" md="3"
               class="d-inline d-sm-none"
-              v-for="x in 2"
-              :key="`team-${(n-1) * 2 + x}`"
+              v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
+              :key="index"
             >
-              <v-card
-                height="400"
-                class="d-flex justify-center align-center bg-white"
+              <!-- <v-card height="400"
+                class="d-flex bg-white justify-center align-center"
               >
-                <span class="text-h2">
-                  Card {{ (n - 1) * 2 + x }}
-                </span>
-              </v-card>
-            </v-col> -->
+                <v-img
+                  :src="team.picture.large"
+                  :lazy-src="team.picture.thumbnail"
+                  class="align-end"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                  height="100%"
+                  cover
+                >
+                  <v-card-title class="text-white" >
+                    {{ team.name.first + ' ' + team.name.last }}
+                  </v-card-title>
+                  <v-card-text class="text-white">
+                    Team Member
+                  </v-card-text>
+                </v-img>
+              </v-card> -->
+            </v-col>
           </v-row>
         
         </v-window-item>
@@ -102,6 +121,7 @@
 </template>
 <script>
 import axios from 'axios';
+import TeamCard from '@/components/landing/TeamCard.vue';
 
 export default {
   async mounted() {
@@ -138,6 +158,9 @@ export default {
         ? (this.team/this.length)
         : this.onboarding - 1
     }
+  },
+  compnents: {
+    TeamCard
   }
 }
 </script>
