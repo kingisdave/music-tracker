@@ -25,6 +25,7 @@
 export default {
   props: [
     'team'
-  ]
+  ],
+  
 }
 </script>

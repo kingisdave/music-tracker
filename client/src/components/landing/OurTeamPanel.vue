@@ -17,7 +17,7 @@
     >
       <v-window v-model="onboarding">
         <v-window-item
-          v-for="n in (teamlength/length)"
+          v-for="n in Math.ceil(teamlength/length)"
           :key="`group-${n}`"
           :value="n"
         >
@@ -27,76 +27,21 @@
               v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
               :key="index"
             >
-            <team-card :team="team" />
-              <!-- <v-card height="400"
-                class="d-flex bg-white justify-center align-center"
-              >
-                <v-img
-                  :src="team.picture.large"
-                  :lazy-src="team.picture.thumbnail"
-                  class="align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="100%"
-                  cover
-                >
-                  <v-card-title class="text-white" >
-                    {{ team.name.first + ' ' + team.name.last }}
-                  </v-card-title>
-                  <v-card-text class="text-white">
-                    Team Member
-                  </v-card-text>
-                </v-img>
-              </v-card> -->
+              <team-card :team="team" />
             </v-col>
             <v-col cols="6" sm="6" md="4"
               class="d-none d-sm-inline d-md-none"
-              v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
+              v-for="(team, index) in teams.slice((n - 1) * 2, n * 2 > teams.length ? teams.length : n * 2)"
               :key="index"
             >
-              <!-- <v-card height="400"
-                class="d-flex bg-white justify-center align-center"
-              >
-                <v-img
-                  :src="team.picture.large"
-                  :lazy-src="team.picture.thumbnail"
-                  class="align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="100%"
-                  cover
-                >
-                  <v-card-title class="text-white" >
-                    {{ team.name.first + ' ' + team.name.last }}
-                  </v-card-title>
-                  <v-card-text class="text-white">
-                    Team Member
-                  </v-card-text>
-                </v-img>
-              </v-card> -->
+              <team-card :team="team" />
             </v-col>
             <v-col cols="12" sm="4" md="3"
               class="d-inline d-sm-none"
-              v-for="(team, index) in teams.slice((n - 1) * length, n * length)"
+              v-for="(team, index) in teams.slice((n - 1), n > teams.length ? teams.length : n)"
               :key="index"
             >
-              <!-- <v-card height="400"
-                class="d-flex bg-white justify-center align-center"
-              >
-                <v-img
-                  :src="team.picture.large"
-                  :lazy-src="team.picture.thumbnail"
-                  class="align-end"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                  height="100%"
-                  cover
-                >
-                  <v-card-title class="text-white" >
-                    {{ team.name.first + ' ' + team.name.last }}
-                  </v-card-title>
-                  <v-card-text class="text-white">
-                    Team Member
-                  </v-card-text>
-                </v-img>
-              </v-card> -->
+              <team-card :team="team" />
             </v-col>
           </v-row>
         
@@ -121,7 +66,7 @@
 </template>
 <script>
 import axios from 'axios';
-import TeamCard from '@/components/landing/TeamCard.vue';
+import TeamCard from './TeamCard.vue';
 
 export default {
   async mounted() {
@@ -143,23 +88,24 @@ export default {
         const response = await axios.get(url);
         this.teams = response.data.results;
         this.teams.sort((a, b) => new Date(a.dob.date) - new Date(b.dob.date));
-        console.log(this.teams, " teams ")
+        console.log(this.teams.length, " teams ")
       } catch (error) {
         console.error(error);
       }
     },
+    
     next () {
-      this.onboarding = this.onboarding + 1 > (this.team/this.length)
+      this.onboarding = this.onboarding + 1 > (this.teamlength/this.length)
         ? 1
         : this.onboarding + 1
     },
     prev () {
       this.onboarding = this.onboarding - 1 <= 0
-        ? (this.team/this.length)
+        ? (this.teamlength/this.length)
         : this.onboarding - 1
     }
   },
-  compnents: {
+  components: {
     TeamCard
   }
 }
