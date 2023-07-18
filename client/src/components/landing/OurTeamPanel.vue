@@ -2,8 +2,8 @@
   <v-card class="primary pt-5"
     align="center"
     style="min-height:70vh;">
-    <v-card-text class="d-block text-center pt-4 pb-3">
-      <h1 class="text-h6 text-sm-h4 font-weight-bold">
+    <v-card-text class="d-block text-center pt-6 pb-8">
+      <h1 class="text-sm-h3 font-weight-medium">
         Our Team
       </h1>
       <h3 class="text-subtitle2 text-sm-subtitle mt-3">
@@ -13,6 +13,7 @@
     <v-card
       flat
       rounded="0"
+      style="width: 85%"
     >
       <v-window v-model="onboarding">
         <v-window-item
@@ -20,18 +21,46 @@
           :key="`group-${n}`"
           :value="n"
         >
-          <v-row class="">
-            <v-col cols="6" sm="4" md="3"
-              class="bg-white"
-              v-for="x in 4"
-              :key="`team-${(n-1) * 4 + x}`"
+          <v-row class="d-flex justify-center">
+            <v-col cols="12" sm="4" md="3"
+              class="d-none d-md-inline bg-white"
+              v-for="x in length"
+              :key="`team-${(n-1) * length + x}`"
             >
               <v-card
-                height="200"
+                height="400"
                 class="d-flex justify-center align-center"
               >
                 <span class="text-h2">
-                  Card {{ (n - 1) * 4 + x }}
+                  Card {{ (n - 1) * length + x }}
+                </span>
+              </v-card>
+            </v-col>
+            <v-col cols="6" sm="6" md="3"
+              class="d-none d-sm-inline d-md-none bg-white"
+              v-for="x in 2"
+              :key="`team-${(n-1) * 2 + x}`"
+            >
+              <v-card
+                height="400"
+                class="d-flex justify-center align-center"
+              >
+                <span class="text-h2">
+                  Card {{ (n - 1) * 2 + x }}
+                </span>
+              </v-card>
+            </v-col>
+            <v-col cols="12" sm="4" md="3"
+              class="d-inline d-sm-none bg-white  "
+              v-for="x in 2"
+              :key="`team-${(n-1) * 2 + x}`"
+            >
+              <v-card
+                height="400"
+                class="d-flex justify-center align-center bg-white"
+              >
+                <span class="text-h2">
+                  Card {{ (n - 1) * 2 + x }}
                 </span>
               </v-card>
             </v-col>
