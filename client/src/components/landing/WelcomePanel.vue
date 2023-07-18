@@ -2,7 +2,7 @@
   <v-card>
     <v-img
       class="align-center text-white"
-      height="80vh"
+      height="90vh"
       :src="require('../../assets/images/Music Education Training Concert Background.jpg')"
       cover
     >
