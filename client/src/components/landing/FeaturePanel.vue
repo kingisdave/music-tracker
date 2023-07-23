@@ -1,8 +1,8 @@
 <template>
-  <v-card class="primary pt-5"
-    align="center"
-    style="min-height:70vh;">
-    <div class="d-block text-center pt-5 pb-4">
+  <v-card class="feature-wrapper primary"
+    align="center">
+    <div class="feature-bgcolor"></div>
+    <div class="d-block text-center pt-7 pb-4">
       <h1 class="text-sm-h3 font-weight-medium">
         Features & Services
       </h1>
@@ -97,5 +97,17 @@ export default {
 </script>
 
 <style scoped>
-
+  .feature-wrapper {
+    min-height:70vh;
+    background-image: url('../../assets/images/nice-guitar.jpg');
+    background-color: cover;
+    background-position: center;
+  }
+  .feature-bgcolor {
+    background-color: rgba(206, 173, 240, 0.877);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+  }
 </style>
