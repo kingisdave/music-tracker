@@ -44,7 +44,7 @@
               <v-img
                 class="text-white"
                 height="300"
-                :src="require('../../assets/images/music-wallpaper.jpg')"
+                :src="slide.src"
                 cover
                 style="width: 100%; height: 100%;"
               />

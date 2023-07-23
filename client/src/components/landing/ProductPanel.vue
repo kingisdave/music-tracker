@@ -1,7 +1,7 @@
 <template>
-  <v-card class="service-wrapper primary"
+  <v-card class="product-wrapper primary"
     align="center">
-    <div class="service-bgcolor"></div>
+    <div class="product-bgcolor"></div>
     
     <!-- <v-card-text class="d-block pt-6 pb-8">
       <h1 class="text-sm-h3 font-weight-medium">
@@ -22,14 +22,14 @@ export default {
 </script>
 
 <style scoped>
-  .service-wrapper {
+  .product-wrapper {
     min-height:70vh;
-    background-image: url('../../assets/images/cool-mic.jpg');
+    background-image: url('../../assets/images/music-wallpaper.jpg');
     background-position: center;
-    background-color: cover;
+    background-color: fill;
   }
-  .service-bgcolor {
-    background-color: rgba(194, 164, 224, 0.7);
+  .product-bgcolor {
+    background-color: rgba(154, 118, 187, 0.7);
     position: absolute;
     width: 100%;
     height: 100%;
