@@ -3,7 +3,7 @@
     <v-img
       class="text-white border-2"
       height="60vh"
-      :src="require('../../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
+      :src="require('../../assets/images/music-wallpaper.jpg')"
       cover
     >
       <v-row class="d-flex justify-center h-100 align-center">

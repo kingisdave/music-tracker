@@ -44,7 +44,7 @@
               <v-img
                 class="text-white"
                 height="300"
-                :src="require('../../assets/images/Dark Music Wallpaper - WallpaperSafari.jpg')"
+                :src="require('../../assets/images/music-wallpaper.jpg')"
                 cover
                 style="width: 100%; height: 100%;"
               />
