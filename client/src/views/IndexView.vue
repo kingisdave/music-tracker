@@ -7,6 +7,7 @@
     <our-team-panel/>
     
     <product-panel />
+    <key-features-panel />
     <logo-panel/>
     
     <contact-us-panel/>
@@ -21,6 +22,7 @@ import WelcomePanel from '@/components/landing/WelcomePanel.vue'
 import FeaturePanel from '@/components/landing/FeaturePanel.vue'
 import OurTeamPanel from '@/components/landing/OurTeamPanel.vue'
 import ProductPanel from '@/components/landing/ProductPanel.vue'
+import KeyFeaturesPanel from '@/components/landing/KeyFeaturesPanel.vue'
 import LogoPanel from '@/components/landing/LogoPanel.vue'
 import ContactUsPanel from '@/components/landing/ContactUsPanel.vue'
 import AboutPanel from '@/components/landing/AboutPanel.vue'
@@ -32,6 +34,7 @@ export default {
     FeaturePanel,
     OurTeamPanel,
     ProductPanel,
+    KeyFeaturesPanel,
     ContactUsPanel,
     LogoPanel,
     AboutPanel
