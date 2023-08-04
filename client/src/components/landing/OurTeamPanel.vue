@@ -1,7 +1,7 @@
 <template @load="showTheme">
   <v-card class="primary pt-5"
     align="center"
-    style="min-height:70vh;">
+    style="min-height:80vh;">
     <v-card-text class="d-block text-center pt-6 pb-8">
       <h1 class="text-sm-h3 font-weight-medium">
         Our Team

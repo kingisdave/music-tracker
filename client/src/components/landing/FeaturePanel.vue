@@ -2,7 +2,7 @@
   <v-card class="feature-wrapper primary"
     align="center">
     <div class="feature-bgcolor"></div>
-    <div class="d-block text-center pt-7 pb-4">
+    <div class="d-block text-center pt-10 pb-8">
       <h1 class="text-sm-h3 font-weight-medium">
         Features & Services
       </h1>
@@ -15,12 +15,13 @@
       :show-arrows="false"
       hide-delimiter-background>
       <v-carousel-item
+        class="pb-4"
         v-for="(slide,i) in slides"
         :key="i"
       >
         <v-sheet
           width="70%"
-          height="85%"
+          height="90%"
           class="mt-3"
           style="background-color: #F5F6F7"
         >
@@ -98,7 +99,7 @@ export default {
 
 <style scoped>
   .feature-wrapper {
-    min-height:70vh;
+    min-height:85vh;
     background-image: url('../../assets/images/nice-guitar.jpg');
     background-color: cover;
     background-position: center;
