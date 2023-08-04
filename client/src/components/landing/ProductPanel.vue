@@ -3,8 +3,8 @@
     align="center">
     <div class="product-bgcolor primary"></div>
     <v-row class="d-flex align-center">
-      <v-col cols="12" sm="6" md="6"
-        class="d-block d-sm-none">
+      <v-col cols="12" md="6"
+        class="d-block d-md-none">
         <v-card class="mx-2 mt-10" variant="none" 
           style="border: 0 !important;">
           <v-card-text class="d-block">
@@ -17,15 +17,15 @@
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="12" sm="6" md="6"
+      <v-col cols="12" md="6"
         class="d-flex justify-center align-center">
-        <v-row class="mx-3 ma-sm-5 pa-0 rounded-xl" 
+        <v-row class="mx-3 pa-0 rounded-xl" 
           style="">
           <v-col cols="6" 
             v-for="(image, index) in cardImages"
             :key="index"
           >
-            <v-card class="ma-1 rounded-xl">
+            <v-card class="ma-1 ma-sm-5 rounded-xl">
               <v-img
                 :src="image.src"
                 aspect-ratio="1"
@@ -46,10 +46,10 @@
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="12" sm="6" md="6"
+      <v-col cols="12" md="6"
         class="">
         <v-card class="mx-4" variant="none">
-          <v-card-text class="d-none d-sm-inline pt-4 pb-3 pb-sm-6">
+          <v-card-text class="d-none d-md-inline pt-4 pb-3 pb-sm-6">
             <h1 class="text-h4 text-md-h3 font-weight-medium">
               Products 
             </h1>
@@ -99,7 +99,7 @@ export default {
 
 <style scoped>
   .product-wrapper {
-    min-height:85vh;
+    min-height:80vh;
     background-image: url('../../assets/images/music-wallpaper.jpg');
     background-position: center;
     background-color: fill;
