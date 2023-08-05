@@ -47,7 +47,7 @@
         <v-col cols="12" sm="6">
           <v-textarea
             counter
-            label="Text"
+            label="Write your Message"
             bg-color="white"
             rows="9"
             :readonly="loading"
