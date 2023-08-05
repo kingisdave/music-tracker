@@ -53,12 +53,12 @@
             <h1 class="text-h4 text-md-h3 font-weight-medium">
               Products 
             </h1>
-            <h3 class="text-subtitle2 text-sm-subtitle mt-3">
+            <h3 class="text-subtitle2 text-sm-h5 font-weight-medium mt-3">
               Product Offering
             </h3>
           </v-card-text>
           <v-card-text class="d-block pt-4 mb-6">
-            <p class="text-body-1">
+            <p class="text-body-1 text-sm-h6 text-sm-h5">
               Lorem ipsum dolor sit amet consectetur adipisicing 
               elit. Ullam voluptas iure quibusdam a cupiditate 
               maiores officia tempora suscipit distinctio autem 
