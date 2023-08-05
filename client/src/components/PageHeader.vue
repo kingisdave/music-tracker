@@ -13,6 +13,7 @@
     <v-app-bar-nav-icon
       variant="text"
       class="mr-auto navButtons"
+      v-if="$store.state.isUserLoggedIn"
       @click.stop="$emit('toggle-drawer')"
     ></v-app-bar-nav-icon>
     <v-btn
