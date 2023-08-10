@@ -1,19 +1,19 @@
 <template>
-  <v-container fluid class="logos-panel ma-0 pa-0">
-    <v-row class="h-25 d-flex align-center">
-      <v-col cols="8"
-        class="text-center text-white"
-      >
-      <v-img
-        src="require('../../assets/images/')"
-        alt=""></v-img>
-        <!-- <v-card-text>
-
-        </v-card-text> -->
-
-      </v-col>
-    </v-row>
-  </v-container>
+  <div class="logos-container">
+    <v-parallax
+      :src="require('@/assets/images/tesla-car.jpg')"
+      height="90vh" style="min-height: 70vh;"
+    >
+      <div class="d-flex flex-column fill-height justify-center align-center text-white">
+        <h1 class="text-h4 font-weight-thin mb-4">
+          Vuetify
+        </h1>
+        <h4 class="subheading">
+          Build your application today!
+        </h4>
+      </div>
+    </v-parallax>
+  </div>
 </template>
 
 <script>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-  .logos-panel{
+  .logos-container{
     background: #F1F1F1;
     color: #929292;
   }
