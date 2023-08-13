@@ -11,9 +11,9 @@
             Let's Track Now
           </h1>
           <v-btn size="x-large"
-            color="mainprimary"
+            color="#5865f2"
             elevation="8" 
-            class="subheading mt-6">
+            class="subheading mt-6 text-white">
             Track your files today!
           </v-btn>
         </div>

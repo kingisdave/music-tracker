@@ -1,7 +1,7 @@
 <template>
   <v-card class="primary pt-5 mx-4"
     variant="plain"
-    style="min-height:70vh;">
+    style="min-height: 85vh;">
     <v-card-text class="text-center my-7">
       <h1 class="text-h4 text-md-h3 font-weight-bold">
         Contact Us
@@ -17,7 +17,7 @@
             :readonly="loading"
             :rules="[required]"
             placeholder="Your Name"
-            class="mb-4"
+            class="mb-6"
             hint="Enter your fullname"
             bg-color="white"
             clearable
@@ -27,7 +27,7 @@
             v-model="email"
             :readonly="loading"
             :rules="[rules.required, rules.email]"
-            class="mb-4"
+            class="mb-6"
             bg-color="white"
             clearable
             hint="Enter your Email (Email is safe with us)"
@@ -38,7 +38,7 @@
             :readonly="loading"
             placeholder="Optional"
             bg-color="white"
-            class="mb-4"
+            class="mb-6"
             hint="Enter your password to access this website"
             clearable
             label="Phone Number"
@@ -49,7 +49,7 @@
             counter
             label="Write your Message"
             bg-color="white"
-            rows="9"
+            rows="10"
             :readonly="loading"
             :rules="[rules.required, rules.length(1000)]"
             :model-value="message"
@@ -65,9 +65,9 @@
             type="submit"
             color="success"
             block 
-            class=" mt-2"
+            class="mt-2"
             variant="elevated"
-            size="large"
+            size="x-large"
           >
             Submit
           </v-btn>
