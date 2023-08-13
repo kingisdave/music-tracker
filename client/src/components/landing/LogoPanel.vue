@@ -4,13 +4,19 @@
       :src="require('@/assets/images/tesla-car.jpg')"
       height="90vh" style="min-height: 70vh;"
     >
-      <div class="d-flex flex-column fill-height justify-center align-center text-white">
-        <h1 class="text-h4 font-weight-thin mb-4">
-          Welcome to Tracker
-        </h1>
-        <h4 class="subheading">
-          Track your files today!
-        </h4>
+      <div class="d-flex flex-column fill-height justify-center align-center">
+        <div class="pa-8 rounded-xl bg-white text-center elevation-12">
+          <h1 class="text-h4 font-weight-bold font-italic"
+            color="primary">
+            Let's Track Now
+          </h1>
+          <v-btn size="x-large"
+            color="mainprimary"
+            elevation="8" 
+            class="subheading mt-6">
+            Track your files today!
+          </v-btn>
+        </div>
       </div>
     </v-parallax>
   </div>
@@ -23,7 +29,7 @@ export default {
 
 <style scoped>
   .logos-container{
-    background: #F1F1F1;
-    color: #929292;
+    /* background: #F1F1F1; */
+    /* color: #929292; */
   }
 </style>
