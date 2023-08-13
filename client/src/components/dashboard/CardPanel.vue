@@ -9,8 +9,26 @@
           <v-row
             class="d-flex flex-wrap"
             justify="space-around">
-            <v-col md="3" cols="6">
-              <v-card
+            <v-col cols="6" md="3">
+              <single-card
+                :rounded="rounded"
+                card-class="cardOne"
+                icon-size="xx-large"
+                icon="mdi-account-group"
+                title="300K"
+                subtitle="Users"
+              />
+            </v-col>
+            <!-- <v-col cols="6" md="3"> -->
+              <!-- <single-card
+                :rounded="rounded"
+                card-class="cardOne"
+                icon-size="xx-large"
+                icon="mdi-account-group"
+                title="300K"
+                subtitle="Users"
+              /> -->
+              <!-- <v-card
                 :rounded="rounded"
                 class="px-3 py-4 m-1 cardOne"
                 theme="dark"
@@ -32,9 +50,9 @@
                     <v-card-subtitle>Users</v-card-subtitle>
                   </div>
                 </div>
-              </v-card>
-            </v-col>
-            <v-col md="3" cols="6">
+              </v-card> -->
+            <!-- </v-col> -->
+            <v-col cols="6" md="3">
               <v-card
                 :rounded="rounded"
                 class="px-3 py-4 m-1 cardTwo"
@@ -120,7 +138,18 @@
 </template>
 
 <script>
+import SingleCard from './SingleCard.vue';
+
 export default {
+
+  components: {
+    SingleCard
+  },
+  data() {
+    return {
+      rounded: true,
+    };
+  }
 }
 </script>
 
